@@ -27,6 +27,8 @@ public class SimpleWN {
                 System.out.println(System.currentTimeMillis()+":T2 start ! notify one thread");
                 /**
                  * 这个执行完之后，T2线程并没有释放object锁，而是在synchronized走完之后，才释放锁
+                 * 也就是说，notify方法执行了，并不代表 资源锁 就被释放了
+                 * wait方法同理。
                  */
                 object.notify();
                 System.out.println(System.currentTimeMillis()+":T2 end !");
