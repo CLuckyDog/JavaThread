@@ -16,7 +16,7 @@ public class GoodSuspend {
         public void resumeMe(){
             suspendme=false;
             /**
-             * 这里的this指当前类 GoodSuspend
+             * 这里的this指当前类 GoodSuspend 实例
              * 参考：https://www.jianshu.com/p/4c1ed2048985
              */
             synchronized (this){
