@@ -1,5 +1,8 @@
 package com.rh.chapter_two;
 
+/**
+ * 线程suspend的使用优化案例
+ */
 public class GoodSuspend {
     public static Object u=new Object();
 

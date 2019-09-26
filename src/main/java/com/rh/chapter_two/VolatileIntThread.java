@@ -1,5 +1,8 @@
 package com.rh.chapter_two;
 
+/**
+ * volatile可见性的实例代码
+ */
 public class VolatileIntThread {
     /**
      * 注意，volatile不能等价于 sync。它无法保证一些复合操作的原子性。

@@ -1,5 +1,8 @@
 package com.rh.chapter_two;
 
+/**
+ * 线程挂起 suspend 方法的错误使用案例
+ */
 public class BadSuspend {
 
     public static Object u=new Object();

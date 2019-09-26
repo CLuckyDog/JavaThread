@@ -1,5 +1,8 @@
 package com.rh.chapter_two;
 
+/**
+ * join 方法的示例代码
+ */
 public class JoinMain {
     public volatile static int i=0;
     public static class AddThread extends Thread{

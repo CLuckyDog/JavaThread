@@ -1,5 +1,8 @@
 package com.rh.chapter_two;
 
+/**
+ * wait 和 notify 方法的示例代码
+ */
 public class SimpleWN {
     final static Object object=new Object();
 
