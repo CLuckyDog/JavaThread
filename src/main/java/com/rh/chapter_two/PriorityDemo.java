@@ -51,8 +51,13 @@ public class PriorityDemo {
     public static void main(String[] args) {
         HightPriority high = new HightPriority();
         LowPriority low = new LowPriority();
+
         high.setPriority(Thread.MAX_PRIORITY);
         low.setPriority(Thread.MIN_PRIORITY);
+        /*
+        * 此处的优先级设置，可能没有起到作用
+        * 因为，low线程开启后，获得监视器后，high才开始start
+        * */
         low.start();
         high.start();
     }
