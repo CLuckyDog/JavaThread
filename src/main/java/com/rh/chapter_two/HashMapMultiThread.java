@@ -2,14 +2,18 @@ package com.rh.chapter_two;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Created by Administrator on 2019/9/29.
  *
  * HashMap的线程安全性验证
+ *
+ * 建议以后都使用ConcurrentHashMap
  */
 public class HashMapMultiThread {
     static Map<String,String> map=new HashMap<>();
+    static ConcurrentHashMap<String,String> cMap=new ConcurrentHashMap<>();
 
     public static class AddThread implements Runnable{
         int start=0;
