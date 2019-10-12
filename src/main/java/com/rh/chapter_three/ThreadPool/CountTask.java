@@ -54,11 +54,16 @@ public class CountTask extends RecursiveTask<Long> {
     }
 
     public static void main(String[] args) {
+        long startTime=System.currentTimeMillis();
+//                CountSum(0,200000L);
         ForkJoinPool forkJoinPool=new ForkJoinPool();
         CountTask task=new CountTask(0,200000L);
         ForkJoinTask<Long> result=forkJoinPool.submit(task);
 
         try {
+            /*
+            * 如果在执行get方法时，任务没有结束，那么主线程就会在get方法时等待。
+            * */
             long res=result.get();
             System.out.println("sum = "+res);
         } catch (InterruptedException e) {
@@ -66,6 +71,17 @@ public class CountTask extends RecursiveTask<Long> {
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
+        long endTime=System.currentTimeMillis();
+        System.out.println("用时："+(endTime-startTime)+"毫秒");
 
+
+    }
+
+    public static void CountSum(long start,long end){
+        long sum=0;
+        for (long i=start;i<=end;i++){
+            sum+=i;
+        }
+        System.out.println("sum:"+sum);
     }
 }
