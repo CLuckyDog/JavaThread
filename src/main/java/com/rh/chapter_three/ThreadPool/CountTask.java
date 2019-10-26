@@ -44,6 +44,11 @@ public class CountTask extends RecursiveTask<Long> {
                 CountTask subTask=new CountTask(pos,lastOne);
                 pos+=step+1;
                 subTasks.add(subTask);
+                /*
+                * 这里无需担心fork和join的先后执行问题
+                * 因为，几个fork就可以有几个join对应
+                * 而无论fork是否在join前执行完毕，join都可以拿到fork的计算结果
+                * */
                 subTask.fork();
             }
             for (CountTask t:subTasks){
