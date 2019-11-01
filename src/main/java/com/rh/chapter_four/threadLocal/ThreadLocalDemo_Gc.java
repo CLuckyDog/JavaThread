@@ -1,4 +1,4 @@
-package com.rh.chapter_four.ThreadLocal;
+package com.rh.chapter_four.threadLocal;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
