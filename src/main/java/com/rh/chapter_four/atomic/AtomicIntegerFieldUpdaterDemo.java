@@ -7,7 +7,13 @@ import java.util.concurrent.atomic.AtomicIntegerFieldUpdater;
  * @author ：pan_zhongjian
  * @version :
  * @date ：Created in 2019/11/1 16:02
- * @description:
+ * @description: AtomicIntegerFieldUpdater线程安全性的示例代码
+ *              该类使用时注意点：
+ *                  1.Updater只能修改它可见范围内的变量，因为Updater使用反射得到这个变量，
+ *                  如果变量不可见就会出错，比如score声明成private就是不行的。
+ *                  2.为了确保变量被正确的读取，它必须是volatile类型，如果我们没有做这个声明，
+ *                  那么简单的声明下就可以，不会影响原有功能。
+ *                  3.由于CAS操作会通过对象实例中的偏移量直接进行赋值，因此，它不支持static字段。
  * @modified By:
  */
 public class AtomicIntegerFieldUpdaterDemo {
