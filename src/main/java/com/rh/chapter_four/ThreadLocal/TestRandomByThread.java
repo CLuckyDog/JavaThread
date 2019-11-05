@@ -6,6 +6,8 @@ import java.util.concurrent.*;
 /**
  * Created by Administrator on 2019/10/26.
  * 用ThreadLocal生成随机数，比较性能实例代码
+ * 结果表明ThreadLocal独享变量，比多线程共享变量性能高
+ *
  */
 public class TestRandomByThread {
     /*定义每个线程要产生随机数的数量*/
