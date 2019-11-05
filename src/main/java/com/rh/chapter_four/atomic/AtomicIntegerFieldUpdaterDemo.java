@@ -27,9 +27,11 @@ public class AtomicIntegerFieldUpdaterDemo {
             t[i] = new Thread(){
                 @Override
                 public void run() {
-                    if (Math.random()>0.4){
-                        scoreUpdater.incrementAndGet(stu);
-                        allScore.incrementAndGet();
+                    if (Math.random()>0.4){/*这个条件的存在，让stu.score小于10000，因为，不是每次循环都进来*/
+                        int x=scoreUpdater.incrementAndGet(stu);/*对stu.score变量新增1并获取*/
+//                        System.out.println("x---------"+x);
+                        int y=allScore.incrementAndGet();/*对allScore变量新增1并获取*/
+//                        System.out.println("y---------"+y);
                     }
                 }
             };
@@ -38,6 +40,12 @@ public class AtomicIntegerFieldUpdaterDemo {
         for (int i=0;i<10000;i++){
             t[i].join();
         }
+        /*
+        * 多次执行发现
+        * 下面两个输出一直都是一样的结果
+        * 说明AtomicIntegerFieldUpdater实现了对普通字段的线程安全保证
+        * 因为AtomicInteger本身是线程安全的
+        * */
         System.out.println("score="+stu.score);
         System.out.println("allScore="+allScore);
     }
