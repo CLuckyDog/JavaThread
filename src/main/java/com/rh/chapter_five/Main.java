@@ -32,7 +32,7 @@ public class Main {
         service.execute(consumer1);
         service.execute(consumer2);
         service.execute(consumer3);
-        Thread.sleep(10000);
+        Thread.sleep(3000);
         producer1.stop();
         producer2.stop();
         producer3.stop();
