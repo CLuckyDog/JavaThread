@@ -33,5 +33,6 @@ public class FutureMain {
         /*相当于5.5.2节中的data.getResult(),取得call()方法的返回值*/
         /*如果此时call()方法没有执行完成，则依然会等待*/
         System.out.println("数据="+future.get());
+        executor.shutdown();
     }
 }
