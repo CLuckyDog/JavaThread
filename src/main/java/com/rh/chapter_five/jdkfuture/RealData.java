@@ -22,7 +22,7 @@ public class RealData implements Callable<String> {
         for (int i=0;i<10;i++){
             sb.append(para);
             try {
-                Thread.sleep(100);
+                Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

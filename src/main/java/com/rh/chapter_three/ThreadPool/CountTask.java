@@ -11,6 +11,8 @@ import java.util.concurrent.RecursiveTask;
  * @version :
  * @date ：Created in 2019/10/11 17:18
  * @description:
+ * 分支/合并框架的目的是以递归的方式将可以并行的任务拆分成更小的任务，然后将每个子任务的结果合并起来生成整体结果。
+ * 它是ExecutorService接口的一个实现，它把子任务分配给线程池ForkJoinPool中的工作线程
  * @modified By:
  */
 public class CountTask extends RecursiveTask<Long> {
@@ -27,6 +29,7 @@ public class CountTask extends RecursiveTask<Long> {
     protected Long compute() {
         long sum=0;
         boolean canCompute=(end-start)<THRESHOLD;
+        /*这里的if判断，就是一个递归逻辑，在else里面，再次创建自己，调用自己的这个compute方法*/
         if (canCompute){
             for (long i=start;i<=end;i++){
                 sum+=i;
@@ -60,7 +63,7 @@ public class CountTask extends RecursiveTask<Long> {
 
     public static void main(String[] args) {
         long startTime=System.currentTimeMillis();
-//                CountSum(0,200000L);
+//                CountSum(0,200000L); /*顺序执行*/
         ForkJoinPool forkJoinPool=new ForkJoinPool();
         CountTask task=new CountTask(0,200000L);
         ForkJoinTask<Long> result=forkJoinPool.submit(task);
