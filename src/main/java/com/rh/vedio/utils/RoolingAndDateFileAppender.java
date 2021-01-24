@@ -107,7 +107,7 @@ public class RoolingAndDateFileAppender extends RollingFileAppender {
 
 	/**
 	 * 如果当天日志达到最大设置数量，则每次删除尾号为1的日志， 其他日志编号依次减去1，重命名
-	 * 
+	 *
 	 * @return
 	 */
 	public Boolean reLogNum() {

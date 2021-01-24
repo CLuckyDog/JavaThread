@@ -13,8 +13,8 @@
     <url>http://www.example.com</url>
 
     <properties>
-        <maven.compiler.source>1.7</maven.compiler.source>
-        <maven.compiler.target>1.7</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jmh.version>1.0</jmh.version>
         <javac.target>1.8</javac.target>
@@ -60,34 +60,13 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.10</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-            <version>5.2.0.RELEASE</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-webmvc</artifactId>
-            <version>5.2.0.RELEASE</version>
+<!--            <version>1.18.10</version>-->
+            <version>1.16.18</version>
         </dependency>
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
             <version>1.2.3</version>
-        </dependency>
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.48</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.openjdk.jol/jol-core -->
-        <dependency>
-            <groupId>org.openjdk.jol</groupId>
-            <artifactId>jol-core</artifactId>
-            <version>0.14</version>
-            <scope>provided</scope>
         </dependency>
 
     </dependencies>
@@ -144,6 +123,7 @@
                 <configuration>
                     <source>8</source>
                     <target>8</target>
+<!--                    <encoding>GBK</encoding>-->
                 </configuration>
             </plugin>
             <plugin>
@@ -159,7 +139,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>com.rh.vedio.MyBenchmark</mainClass>
+                            <mainClass>com.rh.vedio.Sync</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
