@@ -1,10 +1,10 @@
 package com.rh.vedio;
 
-import org.apache.log4j.Logger;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j(topic = "c.Sync")
 public class Sync {
-    public static final Logger logger = Logger.getLogger(Sync.class);
     public static void main(String[] args) {
-        logger.debug("xxxx");
+        log.debug("xxxx");
     }
 }
