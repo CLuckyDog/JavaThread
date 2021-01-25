@@ -1,4 +1,4 @@
-package com.rh.vedio.utils;
+package com.rh.bilibili.utils;
 
 import java.io.File;
 import java.io.IOException;

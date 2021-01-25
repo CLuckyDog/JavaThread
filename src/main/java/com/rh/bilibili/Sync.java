@@ -1,4 +1,4 @@
-package com.rh.vedio;
+package com.rh.bilibili;
 
 import lombok.extern.slf4j.Slf4j;
 

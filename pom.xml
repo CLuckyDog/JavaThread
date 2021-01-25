@@ -93,7 +93,7 @@
                         <configuration>
                             <transformers>
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>com.rh.vedio.Sync</mainClass>
+                                    <mainClass>com.rh.bilibili.Sync</mainClass>
                                     <!-- 主类的位置，例如上图文件，主类配置应为： -->
                                     <!-- <mainClass>top.nihilwater.App</mainClass> -->
                                 </transformer>

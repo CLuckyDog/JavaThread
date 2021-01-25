@@ -1,4 +1,4 @@
-package com.rh.vedio;
+package com.rh.bilibili;
 
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.runner.Runner;
@@ -8,7 +8,6 @@ import org.openjdk.jmh.runner.options.OptionsBuilder;
 
 import java.util.Arrays;
 import java.util.concurrent.FutureTask;
-import java.util.concurrent.TimeUnit;
 
 /**
  * 练习JMH工具的使用
