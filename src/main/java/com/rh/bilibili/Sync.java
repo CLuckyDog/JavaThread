@@ -6,5 +6,6 @@ import lombok.extern.slf4j.Slf4j;
 public class Sync {
     public static void main(String[] args) {
         log.debug("11");
+        System.out.println(System.currentTimeMillis());
     }
 }
