@@ -12,8 +12,8 @@ public class ParkTest {
             log.debug("park....");
             LockSupport.park();
             log.debug("unpark...");
-            log.debug("打断状态：{}",Thread.interrupted());
-//            log.debug("打断状态：{}",Thread.currentThread().isInterrupted());
+//            log.debug("打断状态：{}",Thread.interrupted());
+            log.debug("打断状态：{}",Thread.currentThread().isInterrupted());
 
             LockSupport.park();
             log.debug("unpark...");
