@@ -22,10 +22,14 @@ public class OOPCounterTest {
     static class Room{
         private int counter = 0;
 
-        public void increment(){
-            synchronized (this){
+//        public void increment(){
+//            synchronized (this){
+//                counter++;
+//            }
+//        }
+        //下面这个写法等价于上面那个写法，sync只能锁对象，可以锁实例对象this，也可以锁类对象X.class
+        public synchronized void increment(){
                 counter++;
-            }
         }
 
         public void decrement(){
