@@ -1,5 +1,7 @@
 package com.rh.beauty_thread.chapter01;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 /**
  * \* Created with IntelliJ IDEA.
  * \* User: 潘忠健
@@ -33,5 +35,6 @@ public class ThreadLocalsTest {
         System.out.println("main:"+local1.get());
         System.out.println("main:"+local2.get());
 
+        ThreadLocalRandom current = ThreadLocalRandom.current();
     }
 }
