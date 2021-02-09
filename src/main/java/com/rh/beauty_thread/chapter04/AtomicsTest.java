@@ -3,6 +3,7 @@ package com.rh.beauty_thread.chapter04;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.LongAccumulator;
 import java.util.concurrent.atomic.LongAdder;
+import java.util.concurrent.locks.AbstractQueuedLongSynchronizer;
 import java.util.function.LongBinaryOperator;
 
 /**
@@ -24,5 +25,11 @@ public class AtomicsTest {
                 return 0;
             }
         },0);
+        AbstractQueuedLongSynchronizer abstractQueuedLongSynchronizer=new AbstractQueuedLongSynchronizer() {
+            @Override
+            protected boolean tryAcquire(long arg) {
+                return super.tryAcquire(arg);
+            }
+        };
     }
 }
