@@ -19,29 +19,30 @@ public class OOPCounterTest {
         System.out.println(room.getCounter());
     }
 
-    static class Room{
-        private int counter = 0;
+}
 
-//        public void increment(){
+class Room{
+    private int counter = 0;
+
+    //        public void increment(){
 //            synchronized (this){
 //                counter++;
 //            }
 //        }
-        //下面这个写法等价于上面那个写法，sync只能锁对象，可以锁实例对象this，也可以锁类对象X.class
-        public synchronized void increment(){
-                counter++;
-        }
+    //下面这个写法等价于上面那个写法，sync只能锁对象，可以锁实例对象this，也可以锁类对象X.class
+    public synchronized void increment(){
+        counter++;
+    }
 
-        public void decrement(){
-            synchronized (this){
-                counter--;
-            }
+    public void decrement(){
+        synchronized (this){
+            counter--;
         }
+    }
 
-        public int getCounter(){
-            synchronized (this){
-                return counter;
-            }
+    public int getCounter(){
+        synchronized (this){
+            return counter;
         }
     }
 }
