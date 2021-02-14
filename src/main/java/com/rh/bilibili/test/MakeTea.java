@@ -2,8 +2,6 @@ package com.rh.bilibili.test;
 
 import lombok.extern.slf4j.Slf4j;
 
-import java.util.concurrent.TimeUnit;
-
 import static com.rh.bilibili.utils.Sleeper.sleep;
 
 /**

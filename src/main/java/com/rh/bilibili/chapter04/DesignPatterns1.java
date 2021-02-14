@@ -1,10 +1,7 @@
 package com.rh.bilibili.chapter04;
 
-import com.rh.bilibili.utils.Downloader;
 import lombok.extern.slf4j.Slf4j;
 
-import javax.swing.plaf.nimbus.AbstractRegionPainter;
-import java.io.IOException;
 import java.util.*;
 
 import static com.rh.bilibili.utils.Sleeper.sleep;

@@ -4,10 +4,17 @@ import java.util.concurrent.TimeUnit;
 
 public class Sleeper {
 
-    public static void sleep(int seconds){
+    public static void sleep(int i) {
         try {
-            //用时1分钟
-            TimeUnit.SECONDS.sleep(seconds);
+            TimeUnit.SECONDS.sleep(i);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void sleep(double i) {
+        try {
+            TimeUnit.MILLISECONDS.sleep((int) (i * 1000));
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
