@@ -3,6 +3,8 @@ package com.rh.bilibili.chapter04;
 import com.rh.bilibili.utils.Sleeper;
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.concurrent.locks.ReentrantLock;
+
 /**
  * 哲学家就餐问题
  */
@@ -18,8 +20,8 @@ public class TestDeadLock2 {
         new Philosopher("柏拉图", c2, c3).start();
         new Philosopher("亚里士多德", c3, c4).start();
         new Philosopher("赫拉克利特", c4, c5).start();
-//        new Philosopher("阿基米德", c5, c1).start();  //  造成死锁
-        new Philosopher("阿基米德", c1, c5).start();  //造成饥饿
+        new Philosopher("阿基米德", c5, c1).start();  //  造成死锁
+//        new Philosopher("阿基米德", c1, c5).start();  //造成饥饿
     }
 }
 
@@ -37,11 +39,27 @@ class Philosopher extends Thread {
     @Override
     public void run() {
         while (true) {
+//            //　尝试获得左手筷子
+//            synchronized (left) {
+//                // 尝试获得右手筷子
+//                synchronized (right) {
+//                    eat();
+//                }
+//            }
+            //使用ReentrantLock优化，解决死锁和饥饿问题
             //　尝试获得左手筷子
-            synchronized (left) {
-                // 尝试获得右手筷子
-                synchronized (right) {
-                    eat();
+            if (left.tryLock()){
+                try {
+                    //　尝试获得右手筷子
+                    if (right.tryLock()){
+                        try {
+                            eat();
+                        }finally {
+                            right.unlock();
+                        }
+                    }
+                }finally {
+                    left.unlock();//关键在这个地方，当获取到左筷子后，没有获取到右筷子时，直接释放左筷子锁
                 }
             }
         }
@@ -53,7 +71,7 @@ class Philosopher extends Thread {
     }
 }
 
-class Chopstick {
+class Chopstick extends ReentrantLock {
     String name;
 
     public Chopstick(String name) {
