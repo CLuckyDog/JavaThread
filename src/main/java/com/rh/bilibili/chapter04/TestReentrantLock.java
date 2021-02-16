@@ -19,6 +19,7 @@ public class TestReentrantLock {
         lock.lock();
         try {
             log.debug("enter main....");
+            System.out.println();
             m1();
         }finally {
             lock.unlock();
@@ -26,6 +27,7 @@ public class TestReentrantLock {
     }
 
     public static void m1(){
+
         lock.lock();
         try {
             log.debug("enter m1....");
