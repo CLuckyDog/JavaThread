@@ -1,5 +1,6 @@
 HELP.md
 /target/
+test_ordering/target/
 
 ### STS ###
 .apt_generated

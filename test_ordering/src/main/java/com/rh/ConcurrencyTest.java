@@ -10,10 +10,10 @@ import org.openjdk.jcstress.infra.results.I_Result;
 public class ConcurrencyTest {
 
     int num = 0;
-    boolean ready = false;//加上volatile即可防止指令重拍，从而避免0结果的出现
+    volatile boolean ready = false;//加上volatile即可防止指令重拍，从而避免0结果的出现
     @Actor
     public void actor1(I_Result r) {
-        if(ready) {
+        if(ready) {//读屏障
             r.r1 = num + num;
         } else {
             r.r1 = 1;
@@ -23,7 +23,7 @@ public class ConcurrencyTest {
     @Actor
     public void actor2(I_Result r) {
         num = 2;
-        ready = true;
+        ready = true;//写屏障
     }
 
 }
