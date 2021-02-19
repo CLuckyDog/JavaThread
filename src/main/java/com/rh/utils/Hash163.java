@@ -1,121 +1,121 @@
 package com.rh.utils;
 
-// ´ËÀà´¦Àí°´hashÖµ·Ö±í
+// æ­¤ç±»å¤„ç†æŒ‰hashå€¼åˆ†è¡¨
 public class Hash163 {
-    private final static int TABLE_COUNT = 12;// ·Ö±íÊı
+    private final static int TABLE_COUNT = 12;// åˆ†è¡¨æ•°
 
-    private final static int USEE_TABLE_COUNT = 10;// ÓÃ»§Ïà¹Ø±í·Ö10ÕÅ
+    private final static int USEE_TABLE_COUNT = 10;// ç”¨æˆ·ç›¸å…³è¡¨åˆ†10å¼ 
     
-    private final static int FAVR_MARK_TABLE_COUNT = 100;// ÊÕ²ØºÍÊéÇ©3.0±í·Ö100ÕÅ 
+    private final static int FAVR_MARK_TABLE_COUNT = 100;// æ”¶è—å’Œä¹¦ç­¾3.0è¡¨åˆ†100å¼  
 
-    public final static String USERINFO_TABLE_HEAD = "I_USERINFO";// ÓÃ»§ĞÅÏ¢±í
+    public final static String USERINFO_TABLE_HEAD = "I_USERINFO";// ç”¨æˆ·ä¿¡æ¯è¡¨
 
-    public final static String USERCDN_TABLE_HEAD = "I_USERCDN";// ÓÃ»§ÄÜÁ¦¹ØÁª±í
+    public final static String USERCDN_TABLE_HEAD = "I_USERCDN";// ç”¨æˆ·èƒ½åŠ›å…³è”è¡¨
 
-    public final static String IPTVINFO_TABLE_HEAD = "I_IPTVINFO";// IPTVÄÜÁ¦ĞÅÏ¢±í
+    public final static String IPTVINFO_TABLE_HEAD = "I_IPTVINFO";// IPTVèƒ½åŠ›ä¿¡æ¯è¡¨
 
-    public final static String IPTVLOGIN_TABLE_HEAD = "I_IPTVLOGIN";// IPTVÓÃ»§µÇÂ¼ĞÅÏ¢±í
+    public final static String IPTVLOGIN_TABLE_HEAD = "I_IPTVLOGIN";// IPTVç”¨æˆ·ç™»å½•ä¿¡æ¯è¡¨
     
-    public final static String MULLOGIN_TABLE_HEDA = "I_MULLOGIN";// ÈıÆÁÓÃ»§µÇÂ¼ĞÅÏ¢±í
+    public final static String MULLOGIN_TABLE_HEDA = "I_MULLOGIN";// ä¸‰å±ç”¨æˆ·ç™»å½•ä¿¡æ¯è¡¨
 
-    public final static String SUBSCRIBEINFO_TABLE_HEAD = "I_SUBSCRIBEINFO";// °üÔÂ¶¨¹º¹ØÏµ±í
+    public final static String SUBSCRIBEINFO_TABLE_HEAD = "I_SUBSCRIBEINFO";// åŒ…æœˆå®šè´­å…³ç³»è¡¨
 
-    public final static String TEMPSUBSCRIPTION_TABLE_HEAD = "I_TEMPSUBSCRIPTION";// ·Ç°üÔÂ¶¨¹º¹ØÏµ±í
+    public final static String TEMPSUBSCRIPTION_TABLE_HEAD = "I_TEMPSUBSCRIPTION";// éåŒ…æœˆå®šè´­å…³ç³»è¡¨
 
 
-    public final static String MOBILEINFO_TABLE_HEAD = "I_MOBILEINFO";// MOBILEÄÜÁ¦ĞÅÏ¢
+    public final static String MOBILEINFO_TABLE_HEAD = "I_MOBILEINFO";// MOBILEèƒ½åŠ›ä¿¡æ¯
 
-    public final static String PCINFO_TABLE_HEAD = "I_PCINFO";// PCÄÜÁ¦ĞÅÏ¢
+    public final static String PCINFO_TABLE_HEAD = "I_PCINFO";// PCèƒ½åŠ›ä¿¡æ¯
 
-    public final static String FAVORITEINFO_TABLE_HEAD = "I_FAVORITEINFO";// ÊÕ²ØĞÅÏ¢
+    public final static String FAVORITEINFO_TABLE_HEAD = "I_FAVORITEINFO";// æ”¶è—ä¿¡æ¯
 
-    public final static String MEETINGINFO_TABLE_HEAD = "I_MEETINGINFO";// »áÒéÄÜÁ¦ĞÅÏ¢
+    public final static String MEETINGINFO_TABLE_HEAD = "I_MEETINGINFO";// ä¼šè®®èƒ½åŠ›ä¿¡æ¯
 
-    public final static String SOFTCLIENTINFO_TABLE_HEAD = "I_SOFTCLIENTINFO";// ÈíÖÕ¶ËÄÜÁ¦ĞÅÏ¢
+    public final static String SOFTCLIENTINFO_TABLE_HEAD = "I_SOFTCLIENTINFO";// è½¯ç»ˆç«¯èƒ½åŠ›ä¿¡æ¯
     
-    public final static String SOFTCLIENTONLINEINFO_TABLE_HEAD = "I_SOFTCLIENTONLINEINFO";// ÈíÖÕ¶ËÔÚÏßĞÅÏ¢
+    public final static String SOFTCLIENTONLINEINFO_TABLE_HEAD = "I_SOFTCLIENTONLINEINFO";// è½¯ç»ˆç«¯åœ¨çº¿ä¿¡æ¯
     
-    public final static String IPTVACCOUNT_TABLE_HEAD = "I_IPTVACCOUNT";// »ı·ÖÕË»§±í
+    public final static String IPTVACCOUNT_TABLE_HEAD = "I_IPTVACCOUNT";// ç§¯åˆ†è´¦æˆ·è¡¨
     
-    public final static String GAMESACCOUNT_TABLE_HEAD = "I_GAMES_ACCOUNT";// ÓÎÏ·ÕËºÅ±í
+    public final static String GAMESACCOUNT_TABLE_HEAD = "I_GAMES_ACCOUNT";// æ¸¸æˆè´¦å·è¡¨
     
-    public final static String EXCHARGE_TABLE_HEAD = "A_EXCHANGE_DET";// ºşÄÏTVB³äÖµÇåµ¥±í
+    public final static String EXCHARGE_TABLE_HEAD = "A_EXCHANGE_DET";// æ¹–å—TVBå……å€¼æ¸…å•è¡¨
     
-    public final static String IPTVBINDUNIONPAY_TABLE_HEAD = "A_UNIONPAY_IPTVBIND"; // ½­ËÕÓÃ»§°ó¶¨ÒøÁª¿¨±í
+    public final static String IPTVBINDUNIONPAY_TABLE_HEAD = "A_UNIONPAY_IPTVBIND"; // æ±Ÿè‹ç”¨æˆ·ç»‘å®šé“¶è”å¡è¡¨
     
-    public final static String UNIONPAYMSG_TABLE_HRED = "A_UNIONPAYMSG"; //½­ËÕÒøÁª½»Ò×±¨ÎÄ£¨°´ÔÂ·Ö±í£©
+    public final static String UNIONPAYMSG_TABLE_HRED = "A_UNIONPAYMSG"; //æ±Ÿè‹é“¶è”äº¤æ˜“æŠ¥æ–‡ï¼ˆæŒ‰æœˆåˆ†è¡¨ï¼‰
     
-    public final static String PHONESMSCODE_TABLE_HRED = "A_PHONESMSCODE"; //½­ËÕÒøÁª½»Ò×±¨ÎÄ£¨°´ÔÂ·Ö±í£©
+    public final static String PHONESMSCODE_TABLE_HRED = "A_PHONESMSCODE"; //æ±Ÿè‹é“¶è”äº¤æ˜“æŠ¥æ–‡ï¼ˆæŒ‰æœˆåˆ†è¡¨ï¼‰
     
-    public final static String FAVORITE_TABLE_HEAD = "A_FAVORITE";// ÊÕ²ØĞÅÏ¢3.0
+    public final static String FAVORITE_TABLE_HEAD = "A_FAVORITE";// æ”¶è—ä¿¡æ¯3.0
     
-    public final static String BOOKMARK_TABLE_HEAD = "A_BOOKMARK";// ÊéÇ©ĞÅÏ¢3.0
+    public final static String BOOKMARK_TABLE_HEAD = "A_BOOKMARK";// ä¹¦ç­¾ä¿¡æ¯3.0
     
-    public final static String APPFAVORITE_TABLE_HEAD = "A_APPFAVORITE";// Ó¦ÓÃÊÕ²ØĞÅÏ¢
+    public final static String APPFAVORITE_TABLE_HEAD = "A_APPFAVORITE";// åº”ç”¨æ”¶è—ä¿¡æ¯
     
-    public final static String APPSCORERECORD_TABLE_HEAD = "A_APPSCORERECORD";// Ó¦ÓÃÊÕ²ØĞÅÏ¢
+    public final static String APPSCORERECORD_TABLE_HEAD = "A_APPSCORERECORD";// åº”ç”¨æ”¶è—ä¿¡æ¯
     
-    public final static String AMS_USERINFO = "A_USERINFO"; //0101ÓÃ»§»ù±¾ĞÅÏ¢
+    public final static String AMS_USERINFO = "A_USERINFO"; //0101ç”¨æˆ·åŸºæœ¬ä¿¡æ¯
     
-    public final static String AMS_GAMESACCOUNT = "A_GAMESACCOUNT";//ÓÎÏ·ÕË»§ĞÅÏ¢
-    public final static String AMS_READINGACCOUNT = "A_READINGACCOUNT";//ÔÄ¶ÁÕË»§ĞÅÏ¢
-    public final static String AMS_EDUCATIONACCOUNT = "A_EDUCATIONACCOUNT";//½ÌÓıÕË»§ĞÅÏ¢
-    public final static String AMS_KALAOKACCOUNT = "A_KALAOKACCOUNT";//¿¨À­OKÕË»§ĞÅÏ¢
-    public final static String AMS_LIVEACCOUNT = "A_LIVEACCOUNT";//Éú»îÕË»§ĞÅÏ¢
+    public final static String AMS_GAMESACCOUNT = "A_GAMESACCOUNT";//æ¸¸æˆè´¦æˆ·ä¿¡æ¯
+    public final static String AMS_READINGACCOUNT = "A_READINGACCOUNT";//é˜…è¯»è´¦æˆ·ä¿¡æ¯
+    public final static String AMS_EDUCATIONACCOUNT = "A_EDUCATIONACCOUNT";//æ•™è‚²è´¦æˆ·ä¿¡æ¯
+    public final static String AMS_KALAOKACCOUNT = "A_KALAOKACCOUNT";//å¡æ‹‰OKè´¦æˆ·ä¿¡æ¯
+    public final static String AMS_LIVEACCOUNT = "A_LIVEACCOUNT";//ç”Ÿæ´»è´¦æˆ·ä¿¡æ¯
 
     
  
-    public final static String ACCOUNT_LOCK_TABLE_HEAD = "A_ACCOUNTLOCK";// Í¯ËøÃÜÂë±í
-    public final static String ACCOUNT_LOCK_HISTORY_TABLE_HEAD = "A_ACCOUNTLOCKHISTORY";// Í¯ËøÃÜÂëĞŞ¸Ä¼ÇÂ¼±í
+    public final static String ACCOUNT_LOCK_TABLE_HEAD = "A_ACCOUNTLOCK";// ç«¥é”å¯†ç è¡¨
+    public final static String ACCOUNT_LOCK_HISTORY_TABLE_HEAD = "A_ACCOUNTLOCKHISTORY";// ç«¥é”å¯†ç ä¿®æ”¹è®°å½•è¡¨
     
-    public final static String A_ACCOUNTPHONE_TABLE_HEAD ="A_ACCOUNTPHONE";//°ó¶¨ÊÖ»ú±í
+    public final static String A_ACCOUNTPHONE_TABLE_HEAD ="A_ACCOUNTPHONE";//ç»‘å®šæ‰‹æœºè¡¨
     
-    public final static String HISTORYINFO_TABLE_HEAD = "A_HISTORYINFO";// ¶¨¹ºÀúÊ·ĞÅÏ¢±í
+    public final static String HISTORYINFO_TABLE_HEAD = "A_HISTORYINFO";// å®šè´­å†å²ä¿¡æ¯è¡¨
     
-    public  final static String STBBLACKACCOUNT_TABLE_HEAD ="A_STBBLACKACCOUNT";//´óÌüÓÃ»§ºÚÃûµ¥ĞÅÏ¢
-    public final static String STBGRAYACCOUNT_TABLE_HEAD = "A_STBGRAYACCOUNT"; //´óÌü»ÒÃûµ¥±í
+    public  final static String STBBLACKACCOUNT_TABLE_HEAD ="A_STBBLACKACCOUNT";//å¤§å…ç”¨æˆ·é»‘åå•ä¿¡æ¯
+    public final static String STBGRAYACCOUNT_TABLE_HEAD = "A_STBGRAYACCOUNT"; //å¤§å…ç°åå•è¡¨
     
-    public final static String A_PRODUCTCARDINFO_TABLE_HEAD = "A_PRODUCTCARDINFO"; //²úÆ·¿¨ĞÅÏ¢±í
-    public final static String A_PRODUCTCARDBIND_TABLE_HEAD = "A_PRODUCTCARDBIND"; //²úÆ·¿¨Åú´Î°ó¶¨±í
-    public final static String A_PRODUCTCARDHISTORY_TABLE_HEAD = "A_PRODUCTCARDHISTORY"; //²úÆ·¿¨Ê¹ÓÃ¼ÇÂ¼±í
-    public final static String A_PRODUCTCARDBATCH_TABLE_HEAD = "A_PRODUCTCARDBATCH"; //²úÆ·¿¨Åú´Î±í
+    public final static String A_PRODUCTCARDINFO_TABLE_HEAD = "A_PRODUCTCARDINFO"; //äº§å“å¡ä¿¡æ¯è¡¨
+    public final static String A_PRODUCTCARDBIND_TABLE_HEAD = "A_PRODUCTCARDBIND"; //äº§å“å¡æ‰¹æ¬¡ç»‘å®šè¡¨
+    public final static String A_PRODUCTCARDHISTORY_TABLE_HEAD = "A_PRODUCTCARDHISTORY"; //äº§å“å¡ä½¿ç”¨è®°å½•è¡¨
+    public final static String A_PRODUCTCARDBATCH_TABLE_HEAD = "A_PRODUCTCARDBATCH"; //äº§å“å¡æ‰¹æ¬¡è¡¨
     
-    public final static String QUESTIONNATE_TABLE_HEAD = "A_QUESTIONNATE";// ÎÊ¾íµ÷²é±í
-    public  final static String A_SELFSERVICESACCOUNT_TABLE_HEAD="A_SELFSERVICESACCOUNT";//×Ô·şÎñ´óÌü¿ÉÊÓÍ¨»°ÓÃ»§±í
-    public static final String A_USERCHECKRESULT_TABLE_HEAD = "A_USERCHECKRESULT";//Í¯ËøÃÜÂëÊ¹ÓÃ¼ÇÂ¼±í
+    public final static String QUESTIONNATE_TABLE_HEAD = "A_QUESTIONNATE";// é—®å·è°ƒæŸ¥è¡¨
+    public  final static String A_SELFSERVICESACCOUNT_TABLE_HEAD="A_SELFSERVICESACCOUNT";//è‡ªæœåŠ¡å¤§å…å¯è§†é€šè¯ç”¨æˆ·è¡¨
+    public static final String A_USERCHECKRESULT_TABLE_HEAD = "A_USERCHECKRESULT";//ç«¥é”å¯†ç ä½¿ç”¨è®°å½•è¡¨
     
     //add by zhaoyj 71919
-    //ÏûÏ¢ºĞ×ÓÏà¹Ø±í
-    public static final String A_M_USERNORMALMESSAGEVIEW_TABLE_HEAD = "A_M_USERNORMALMESSAGEVIEW";//ÓÃ»§ÆÕÍ¨ÏûÏ¢¸ÅÀÀ±í
-    public static final String A_M_USERNORMALMESSAGE_TABLE_HEAD = "A_M_USERNORMALMESSAGE";//ÓÃ»§ÆÕÍ¨ÏûÏ¢±í
-    public static final String A_M_USERFORCEDMESSAGE_TABLE_HEAD = "A_M_USERFORCEDMESSAGE";//ÓÃ»§Ç¿ÖÆÏûÏ¢±í
+    //æ¶ˆæ¯ç›’å­ç›¸å…³è¡¨
+    public static final String A_M_USERNORMALMESSAGEVIEW_TABLE_HEAD = "A_M_USERNORMALMESSAGEVIEW";//ç”¨æˆ·æ™®é€šæ¶ˆæ¯æ¦‚è§ˆè¡¨
+    public static final String A_M_USERNORMALMESSAGE_TABLE_HEAD = "A_M_USERNORMALMESSAGE";//ç”¨æˆ·æ™®é€šæ¶ˆæ¯è¡¨
+    public static final String A_M_USERFORCEDMESSAGE_TABLE_HEAD = "A_M_USERFORCEDMESSAGE";//ç”¨æˆ·å¼ºåˆ¶æ¶ˆæ¯è¡¨
     
-    //µçĞÅ»ı·Ö¶Ò»»¼ÇÂ¼±í
+    //ç”µä¿¡ç§¯åˆ†å…‘æ¢è®°å½•è¡¨
     public static final String A_POINTRECORD_TABLE_HEAD = "A_POINTRECORD";
     
-    //¹ã¶«Í³Ò»¶©¹º¶©µ¥ĞÅÏ¢±í
+    //å¹¿ä¸œç»Ÿä¸€è®¢è´­è®¢å•ä¿¡æ¯è¡¨
     public static final String A_GDORDERINFO_TABLE_HEAD = "A_GDORDERINFO";
     
     //add by zhaoyj 71919 20151020
-    // ËÄ´¨ËÄ¼¾¶È³é½±±í
+    // å››å·å››å­£åº¦æŠ½å¥–è¡¨
     public static final String T_A_LOTTERY_TABLE_HEAD = "T_A_LOTTERY";
     
-    //ÓÃ»§Ö§¸¶È¯ÕË»§±í
+    //ç”¨æˆ·æ”¯ä»˜åˆ¸è´¦æˆ·è¡¨
     public static final String A_USERPAYMENTVOUCHERACCOUNT_TABLE_HEAD = "A_USERPAYMENTVOUCHERACCOUNT";
-    //ÓÃ»§Ö§¸¶È¯ÁìÈ¡¼ÇÂ¼±í
+    //ç”¨æˆ·æ”¯ä»˜åˆ¸é¢†å–è®°å½•è¡¨
     public static final String A_USERPAYMENTVOUCHEROBTAIN_TABLE_HEAD = "A_USERPAYMENTVOUCHEROBTAIN";
     
-    //ÓÃ»§Ö§¸¶È¯Ïû·Ñ¼ÇÂ¼±í
+    //ç”¨æˆ·æ”¯ä»˜åˆ¸æ¶ˆè´¹è®°å½•è¡¨
     public static final String A_USERPAYVOUCHERCONSUMPTION_TABLE_HEAD = "A_USERPAYVOUCHERCONSUMPTION";
     
     
-    // ËÄ´¨517ÃëÉ±¼ÇÂ¼±í
+    // å››å·517ç§’æ€è®°å½•è¡¨
     public static final String T_A_MAYACTIVITYRECODE_TABLE_HEAD = "T_A_MAYACTIVITYRECODE";
     
-    // ËÄ´¨¶ËÎçÃëÉ±¼ÇÂ¼±í
+    // å››å·ç«¯åˆç§’æ€è®°å½•è¡¨
     public static final String T_A_DRAGONBOATRECORD_TABLE_HEAD = "T_A_DRAGONBOATRECORD";
     /**
-     * »ñµÃ¶©¹º¹ØÏµ±íÃû
+     * è·å¾—è®¢è´­å…³ç³»è¡¨å
      * 
      * @param userName
      * @return
@@ -127,7 +127,7 @@ public class Hash163 {
     }
 
     /**
-     * »ñµÃ¶©¹º¹ØÏµ±íÃû
+     * è·å¾—è®¢è´­å…³ç³»è¡¨å
      * 
      * @param userName
      * @return
@@ -139,20 +139,20 @@ public class Hash163 {
     }
 
     /**
-     * »ñµÃÇåµ¥±íÃû
+     * è·å¾—æ¸…å•è¡¨å
      * 
      * @param cdate
      * @return
      */
     public static String getDetTableName(java.util.Date cdate) {
-        // È¡Çåµ¥
+        // å–æ¸…å•
         String detMonth = DateUtil.getMonth(cdate);
         String tableName = "I_USERDET" + detMonth;
         return tableName;
     }
 
     /**
-     * »ñµÃ¶Ò»»ÀúÊ·¼ÇÂ¼±íÃû
+     * è·å¾—å…‘æ¢å†å²è®°å½•è¡¨å
      * 
      * @param cdate
      * @return
@@ -164,20 +164,20 @@ public class Hash163 {
     }
 
     /**
-     * »ñµÃÇåµ¥±¸·İ±íÃû
+     * è·å¾—æ¸…å•å¤‡ä»½è¡¨å
      * 
      * @param cdate
      * @return
      */
     public static String getDetBakTableName(java.util.Date cdate) {
-        // È¡Çåµ¥
+        // å–æ¸…å•
         String detMonth = DateUtil.getMonth(cdate);
         String tableName = "I_USERDETBAK" + detMonth;
         return tableName;
     }
 
     /**
-     * »ñµÃÓÃ»§±íÃû
+     * è·å¾—ç”¨æˆ·è¡¨å
      * 
      * @return java.lang.String
      * @param userName
@@ -189,7 +189,7 @@ public class Hash163 {
     }
 
     /**
-     * ¸ù¾İÓÃ»§Ãû»ñµÃÏà¹Ø±íÃû. ´´½¨ ÈÕÆÚ: (2002-6-6 11:18:12)
+     * æ ¹æ®ç”¨æˆ·åè·å¾—ç›¸å…³è¡¨å. åˆ›å»º æ—¥æœŸ: (2002-6-6 11:18:12)
      * 
      * @return java.lang.String
      * @param str
@@ -213,7 +213,7 @@ public class Hash163 {
         return tableHead + sHash2(str);
     }
 
-    // ¸ù¾İÓÃ»§Ãû»ñµÃHASHÖµ
+    // æ ¹æ®ç”¨æˆ·åè·å¾—HASHå€¼
     static public int hash(String str) {
         int l_power[] = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43,
             47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101, 103, 107, 109,
@@ -226,7 +226,7 @@ public class Hash163 {
         return (s_sum % TABLE_COUNT);
     }
 
-    // ¸ù¾İÓÃ»§Ãû»ñµÃHASHÖµ
+    // æ ¹æ®ç”¨æˆ·åè·å¾—HASHå€¼
     static public int hash2(String str) {
         int l_power[] = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43,
             47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101, 103, 107, 109,
@@ -240,7 +240,7 @@ public class Hash163 {
     }
 
     /**
-     * ´Ë´¦²åÈë·½·¨ÃèÊö. ´´½¨ ÈÕÆÚ: (2002-6-7 10:49:11)
+     * æ­¤å¤„æ’å…¥æ–¹æ³•æè¿°. åˆ›å»º æ—¥æœŸ: (2002-6-7 10:49:11)
      * 
      * @return java.lang.String
      * @param str
@@ -282,7 +282,7 @@ public class Hash163 {
         return (ret);
     }
 
-    // »ñÈ¡Ô­Ê¼µÄhashÖµ
+    // è·å–åŸå§‹çš„hashå€¼
     static public int hashValue(String str) {
         int l_power[] = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43,
             47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101, 103, 107, 109,
@@ -297,11 +297,11 @@ public class Hash163 {
     
     
     /**
-     * »ñµÃÓÃ»§±íÃû
+     * è·å¾—ç”¨æˆ·è¡¨å
      * 
      * @return java.lang.String
      * @param userName java.lang.String
-     *      ·Ö100ÕÅ±í
+     *      åˆ†100å¼ è¡¨
      */
     public static String USERHash3(String userName, String tableHead)
             throws Exception {
@@ -334,7 +334,7 @@ public class Hash163 {
         return (ret);
     }
 
-    // ¸ù¾İÓÃ»§Ãû»ñµÃHASHÖµ
+    // æ ¹æ®ç”¨æˆ·åè·å¾—HASHå€¼
     static public int hash3(String str) {
         int l_power[] = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43,
             47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101, 103, 107, 109,

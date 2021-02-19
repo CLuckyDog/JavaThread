@@ -105,7 +105,7 @@ public class DateUtil {
     /**
      *
      * @description
-     * ½«Ò»¶¨Ê±¼ä¸ñÊ½µÄ×Ö·û´®×ª»»ÎªDate
+     * å°†ä¸€å®šæ—¶é—´æ ¼å¼çš„å­—ç¬¦ä¸²è½¬æ¢ä¸ºDate
      * @author sunlei
      * @date 2009-4-8
      * @version 1.0.0
@@ -196,7 +196,7 @@ public class DateUtil {
     }
 
     /**
-     * parseDate(String) ½«ÈÕÆÚºÍÊ±¼äºÏ²¢£¬
+     * parseDate(String) å°†æ—¥æœŸå’Œæ—¶é—´åˆå¹¶ï¼Œ
      *
      * @param dataString
      *            MUST be "19990101" formal,"081212"
@@ -224,7 +224,7 @@ public class DateUtil {
     }
 
     /**
-     * parseDate(String) ½«dateÀàĞÍµÄÈÕÆÚºÍStringÊ±¼äºÏ²¢£¬
+     * parseDate(String) å°†dateç±»å‹çš„æ—¥æœŸå’ŒStringæ—¶é—´åˆå¹¶ï¼Œ
      *
      * @param dataString
      *            MUST be "19990101" formal,"081212"
@@ -253,7 +253,7 @@ public class DateUtil {
     /**
      *
      * <p>
-     * »ñÈ¡Ê±¼ä´ÁyyyyMMddHHmmss
+     * è·å–æ—¶é—´æˆ³yyyyMMddHHmmss
      * @return
      */
     public static String getNowTimeStamp(){
@@ -271,7 +271,7 @@ public class DateUtil {
     /**
      * 
      * <p>
-     * »ñÈ¡Ê±¼ä´ÁyyyyMMddHHmmssfff
+     * è·å–æ—¶é—´æˆ³yyyyMMddHHmmssfff
      * @return
      */
     public static String getNowTimeStampLong(){

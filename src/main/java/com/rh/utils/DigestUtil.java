@@ -27,36 +27,36 @@ import java.security.NoSuchAlgorithmException;
 
 /**
  * <p>
- * <b>°æÈ¨£º</b>Copyright (c) 2015 ÑÇĞÅ.<br>
- * <b>¹¤³Ì£º</b>iptvsys<br>
- * <b>ÎÄ¼ş£º</b>DigestUtil.java<br>
- * <b>´´½¨ÈË£º</b> zhaoyj 71919<br>
- * <b>´´½¨Ê±¼ä£º</b>2015-9-24 ÉÏÎç10:43:29<br>
+ * <b>ç‰ˆæƒï¼š</b>Copyright (c) 2015 äºšä¿¡.<br>
+ * <b>å·¥ç¨‹ï¼š</b>iptvsys<br>
+ * <b>æ–‡ä»¶ï¼š</b>DigestUtil.java<br>
+ * <b>åˆ›å»ºäººï¼š</b> zhaoyj 71919<br>
+ * <b>åˆ›å»ºæ—¶é—´ï¼š</b>2015-9-24 ä¸Šåˆ10:43:29<br>
  * <p>
  * <b>DigestUtil.</b><br>
  * DigestUtil.<br>
  * </p>
  *
  * @author zhaoyj
- * @see [Ïà¹ØÀà/·½·¨]
- * @since [²úÆ·/Ä£¿é°æ±¾]
+ * @see [ç›¸å…³ç±»/æ–¹æ³•]
+ * @since [äº§å“/æ¨¡å—ç‰ˆæœ¬]
  */
 public class DigestUtil {
-    /** ¼ÓÃÜ·½Ê½ AES */
+    /** åŠ å¯†æ–¹å¼ AES */
     public static final String AES = "AES";
-    /** ¼ÓÃÜ·½Ê½ DES */
+    /** åŠ å¯†æ–¹å¼ DES */
     public static final String DES = "DES";
-    /** ¼ÓÃÜ·½Ê½ MD5 */
+    /** åŠ å¯†æ–¹å¼ MD5 */
     public static final String MD5 = "MD5";
-    /** AESÃÜÔ¿³¤¶È 128 */
+    /** AESå¯†é’¥é•¿åº¦ 128 */
     public static final int AES_KEY_128 = 128;
-    /** AESÃÜÔ¿³¤¶È 196 */
+    /** AESå¯†é’¥é•¿åº¦ 196 */
     public static final int AES_KEY_196 = 196;
-    /** AESÃÜÔ¿³¤¶È 256 */
+    /** AESå¯†é’¥é•¿åº¦ 256 */
     public static final int AES_KEY_256 = 256;
-    /** DESÃÜÔ¿³¤¶È 32 */
+    /** DESå¯†é’¥é•¿åº¦ 32 */
     public static final int DES_KEY_32 = 32;
-    /** DESÃÜÔ¿³¤¶È 56 */
+    /** DESå¯†é’¥é•¿åº¦ 56 */
     public static final int DES_KEY_56 = 56;
 
     private DigestUtil() {
@@ -69,38 +69,38 @@ public class DigestUtil {
      *******************************************************************************/
 
     /**
-     * Base64¼ÓÃÜ, ·Ç±ê×¼
+     * Base64åŠ å¯†, éæ ‡å‡†
      * 
      * @param bytes
      * @return
-     * @author: ³Â³¿<br>
+     * @author: é™ˆæ™¨<br>
      * @date: 2014-4-24<br>
      */
     /*
      * public static String encodeBase64(byte[] bytes) { if (bytes == null)
-     * return null; // ½«×Ö½ÚÖğ¸ö×ª»»Îª2Î»Ê®Áù½øÖÆ×Ö·û int len = bytes.length; char result[] =
+     * return null; // å°†å­—èŠ‚é€ä¸ªè½¬æ¢ä¸º2ä½åå…­è¿›åˆ¶å­—ç¬¦ int len = bytes.length; char result[] =
      * new char[len * 2]; for (int i=0; i<len; i++) { String hex2 =
      * ConvertUtil.byte2Hex(bytes[i]); result[i * 2] = hex2.charAt(0); result[i
      * * 2 + 1] = hex2.charAt(1); } return new String(result); }
      */
 
     /**
-     * Base64½âÃÜ, ·Ç±ê×¼
+     * Base64è§£å¯†, éæ ‡å‡†
      * 
      * @param res
-     *            base64×Ö·û
+     *            base64å­—ç¬¦
      * @return
-     * @author: ³Â³¿<br>
+     * @author: é™ˆæ™¨<br>
      * @date: 2014-4-24<br>
      */
     /*
      * public static byte[] decodeBase64(String res) { if (res == null) return
      * null; else if (res.length() % 2 != 0) throw new
-     * NullPointerException("¼ÓÃÜ×Ö·û³¤¶È±ØĞëÎª2µÄÕûÊı±¶"); else if
+     * NullPointerException("åŠ å¯†å­—ç¬¦é•¿åº¦å¿…é¡»ä¸º2çš„æ•´æ•°å€"); else if
      * (!res.matches("[0-9|a-z|A-Z]+")) throw new
-     * IllegalArgumentException("¼ÓÃÜ×Ö·û±ØĞëÎªÊ®Áù½øÖÆ×Ö·û");
+     * IllegalArgumentException("åŠ å¯†å­—ç¬¦å¿…é¡»ä¸ºåå…­è¿›åˆ¶å­—ç¬¦");
      * 
-     * // Ã¿2Î»Ê®Áù½øÖÆ×Ö·û×ª»»Îª1byte byte[] bytes = new byte[res.length() / 2]; for (int
+     * // æ¯2ä½åå…­è¿›åˆ¶å­—ç¬¦è½¬æ¢ä¸º1byte byte[] bytes = new byte[res.length() / 2]; for (int
      * i=0; i<res.length(); i+=2) { bytes[i/2] =
      * ConvertUtil.hex2Byte(res.substring(i, i + 2)); } return bytes; }
      */
@@ -111,7 +111,7 @@ public class DigestUtil {
      *******************************************************************************/
 
     /**
-     * ±ê×¼MD5¼ÓÃÜ(MySQLµÈÖµ£¬×Ö·ûÎªĞ¡Ğ´)
+     * æ ‡å‡†MD5åŠ å¯†(MySQLç­‰å€¼ï¼Œå­—ç¬¦ä¸ºå°å†™)
      * 
      * @param msg
      * @return
@@ -123,7 +123,7 @@ public class DigestUtil {
             byte[] strTemp = msg.getBytes();
             MessageDigest mdTemp = MessageDigest.getInstance("MD5");
             mdTemp.update(strTemp);
-            byte[] md = mdTemp.digest(); // 16Î»¼ÓÃÜ
+            byte[] md = mdTemp.digest(); // 16ä½åŠ å¯†
             int j = md.length;
             char str[] = new char[j * 2];
             int k = 0;
@@ -140,10 +140,10 @@ public class DigestUtil {
     }
 
     /**
-     * ¼òµ¥MD5¼ÓÃÜ
+     * ç®€å•MD5åŠ å¯†
      * 
      * @param res
-     *            Ô´×Ö·û
+     *            æºå­—ç¬¦
      * @return MD5
      */
     public static String MD5Simple(String res) {
@@ -160,62 +160,62 @@ public class DigestUtil {
 
     /*******************************************************************************
      * 
-     * TODO AES¡¢DES
+     * TODO AESã€DES
      * 
      *******************************************************************************/
 
     /**
-     * ¹¹ÔìÃÜÔ¿
+     * æ„é€ å¯†é’¥
      * 
      * @param type
      * @param length
      * @return
      * @throws NoSuchAlgorithmException
-     * @author: ³Â³¿<br>
+     * @author: é™ˆæ™¨<br>
      * @date: 2014-4-24<br>
      */
     public static String generateKey(String type, int length) throws NoSuchAlgorithmException {
         if (type == null || !type.matches(AES + "|" + DES))
-            throw new IllegalArgumentException("ÃÜÔ¿ÀàĞÍ´íÎó");
+            throw new IllegalArgumentException("å¯†é’¥ç±»å‹é”™è¯¯");
         if (type.equals(AES)
                 && !(length == AES_KEY_128 || length == AES_KEY_196 || length == AES_KEY_256))
-            throw new IllegalArgumentException("AESÃÜÔ¿³¤¶È´íÎó");
+            throw new IllegalArgumentException("AESå¯†é’¥é•¿åº¦é”™è¯¯");
         if (type.equals(DES) && !(length == DES_KEY_32 || length == DES_KEY_56))
-            throw new IllegalArgumentException("DESÃÜÔ¿³¤¶È´íÎó");
+            throw new IllegalArgumentException("DESå¯†é’¥é•¿åº¦é”™è¯¯");
 
-        // Í¨¹ı¼ÓÃÜÀàĞÍÊµÀı»¯Key¹¹ÔìÆ÷
+        // é€šè¿‡åŠ å¯†ç±»å‹å®ä¾‹åŒ–Keyæ„é€ å™¨
         KeyGenerator kg = KeyGenerator.getInstance(type);
-        // ³õÊ¼»¯Key³¤¶È
+        // åˆå§‹åŒ–Keyé•¿åº¦
         kg.init(length);
-        // ¹¹ÔìKey
+        // æ„é€ Key
         SecretKey skey = kg.generateKey();
-        // base64¼ÓÃÜKey
+        // base64åŠ å¯†Key
         return new String(Base64.encodeBase64(skey.getEncoded()));
     }
 
     /**
-     * »¹Ô­ÃÜÔ¿
+     * è¿˜åŸå¯†é’¥
      * 
      * @param key
      * @param type
      * @return SecretKey
-     * @author: ³Â³¿<br>
+     * @author: é™ˆæ™¨<br>
      * @date: 2014-4-24<br>
      */
     public static Key reductionKey(byte[] key, String type) {
         if (key == null || "".equals(key))
             return null;
         if (type == null || !type.matches(AES + "|" + DES))
-            throw new IllegalArgumentException("ÃÜÔ¿ÀàĞÍ´íÎó");
+            throw new IllegalArgumentException("å¯†é’¥ç±»å‹é”™è¯¯");
 
-        // ÊµÀı»¯ÃÜÔ¿¶ÔÏó
+        // å®ä¾‹åŒ–å¯†é’¥å¯¹è±¡
         return new SecretKeySpec(key, type);
     }
 
     /**
-     * »¹Ô­ÃÜÔ¿
+     * è¿˜åŸå¯†é’¥
      * 
-     * @author: ³Â³¿<br>
+     * @author: é™ˆæ™¨<br>
      * @date: 2014-9-24<br>
      */
     public static Key reductionKey(String key, String type) {
@@ -223,21 +223,21 @@ public class DigestUtil {
     }
 
     /**
-     * AES/DES¼ÓÃÜ
+     * AES/DESåŠ å¯†
      * 
      * @param res
-     *            Ô´×Ö·û
+     *            æºå­—ç¬¦
      * @param key
-     *            base64ÃÜÔ¿
+     *            base64å¯†é’¥
      * @param type
-     *            ¼ÓÃÜÀàĞÍ
-     * @return base64¼ÓÃÜ×Ö·û
+     *            åŠ å¯†ç±»å‹
+     * @return base64åŠ å¯†å­—ç¬¦
      * @throws NoSuchAlgorithmException
      * @throws NoSuchPaddingException
      * @throws InvalidKeyException
      * @throws IllegalBlockSizeException
      * @throws BadPaddingException
-     * @author: ³Â³¿<br>
+     * @author: é™ˆæ™¨<br>
      * @date: 2014-4-25<br>
      */
     public static byte[] encrypt(byte[] res, String key, String type)
@@ -246,47 +246,47 @@ public class DigestUtil {
         if (res == null)
             return null;
         if (type == null || !type.matches(AES + "|" + DES))
-            throw new IllegalArgumentException("ÃÜÔ¿ÀàĞÍ´íÎó");
+            throw new IllegalArgumentException("å¯†é’¥ç±»å‹é”™è¯¯");
 
-        // »¹Ô­Key
+        // è¿˜åŸKey
         Key skey = reductionKey(key, type);
-        // ÊµÀı»¯¼ÓÃÜ¶ÔÏó
+        // å®ä¾‹åŒ–åŠ å¯†å¯¹è±¡
         Cipher ci = Cipher.getInstance(type);
         ci.init(Cipher.ENCRYPT_MODE, skey);
-        // ¼ÓÃÜ¡¢¹¹½¨×Ö·û´®
+        // åŠ å¯†ã€æ„å»ºå­—ç¬¦ä¸²
         return ci.doFinal(res);
     }
 
     /**
-     * AES/DES¼ÓÃÜ
+     * AES/DESåŠ å¯†
      * 
-     * @author: ³Â³¿<br>
+     * @author: é™ˆæ™¨<br>
      * @throws UnsupportedEncodingException
      * @date: 2014-9-24<br>
      */
     public static String encrypt(String res, String key, String type)
             throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException,
             IllegalBlockSizeException, BadPaddingException, UnsupportedEncodingException {
-        byte[] bt = encrypt(res.getBytes("UTF-8"), key, type);// sgwang ·ÀÖ¹ÖĞÎÄÂÒÂë
+        byte[] bt = encrypt(res.getBytes("UTF-8"), key, type);// sgwang é˜²æ­¢ä¸­æ–‡ä¹±ç 
         return new String(Base64.encodeBase64(bt));
     }
 
     /**
-     * AES/DES½âÃÜ
+     * AES/DESè§£å¯†
      * 
      * @param res
-     *            base64Ô´×Ö·û
+     *            base64æºå­—ç¬¦
      * @param key
-     *            base64ÃÜÔ¿
+     *            base64å¯†é’¥
      * @param type
-     *            ¼ÓÃÜÀàĞÍ
-     * @return ½âÃÜ×Ö·û
+     *            åŠ å¯†ç±»å‹
+     * @return è§£å¯†å­—ç¬¦
      * @throws NoSuchAlgorithmException
      * @throws NoSuchPaddingException
      * @throws InvalidKeyException
      * @throws IllegalBlockSizeException
      * @throws BadPaddingException
-     * @author: ³Â³¿<br>
+     * @author: é™ˆæ™¨<br>
      * @date: 2014-4-25<br>
      */
     public static byte[] decrypt(byte[] res, String key, String type)
@@ -295,21 +295,21 @@ public class DigestUtil {
         if (res == null)
             return null;
         if (type == null || !type.matches(AES + "|" + DES))
-            throw new IllegalArgumentException("ÃÜÔ¿ÀàĞÍ´íÎó");
+            throw new IllegalArgumentException("å¯†é’¥ç±»å‹é”™è¯¯");
 
-        // »¹Ô­Key
+        // è¿˜åŸKey
         Key skey = reductionKey(key, type);
-        // ÊµÀı»¯¼ÓÃÜ¶ÔÏó
+        // å®ä¾‹åŒ–åŠ å¯†å¯¹è±¡
         Cipher ci = Cipher.getInstance(type);
         ci.init(Cipher.DECRYPT_MODE, skey);
-        // ·µ»Ø½âÃÜ×Ö·û
+        // è¿”å›è§£å¯†å­—ç¬¦
         return ci.doFinal(res);
     }
 
     /**
-     * AES/DES½âÃÜ
+     * AES/DESè§£å¯†
      * 
-     * @author: ³Â³¿<br>
+     * @author: é™ˆæ™¨<br>
      * @date: 2014-9-24<br>
      */
     public static byte[] decryptBase64(String res, String key, String type)
@@ -319,33 +319,33 @@ public class DigestUtil {
     }
 
     /**
-     * AES/DES½âÃÜ
+     * AES/DESè§£å¯†
      * 
-     * @author: ³Â³¿<br>
+     * @author: é™ˆæ™¨<br>
      * @throws UnsupportedEncodingException
      * @date: 2014-9-24<br>
      */
     public static String decrypt(String res, String key, String type)
             throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException,
             IllegalBlockSizeException, BadPaddingException, UnsupportedEncodingException {
-        byte[] bt = decryptBase64(res, key, type);// sgwang ·ÀÖ¹ÖĞÎÄÂÒÂë
+        byte[] bt = decryptBase64(res, key, type);// sgwang é˜²æ­¢ä¸­æ–‡ä¹±ç 
         return new String(bt, "UTF-8");
     }
 
     /**
-     * AES¼ÓÃÜ
+     * AESåŠ å¯†
      * 
      * @param res
-     *            Ô´×Ö·û
+     *            æºå­—ç¬¦
      * @param key
-     *            base64ÃÜÔ¿
-     * @return base64¼ÓÃÜ×Ö·û
+     *            base64å¯†é’¥
+     * @return base64åŠ å¯†å­—ç¬¦
      * @throws NoSuchAlgorithmException
      * @throws NoSuchPaddingException
      * @throws InvalidKeyException
      * @throws IllegalBlockSizeException
      * @throws BadPaddingException
-     * @author: ³Â³¿<br>
+     * @author: é™ˆæ™¨<br>
      * @throws UnsupportedEncodingException
      * @date: 2014-4-25<br>
      */
@@ -359,19 +359,19 @@ public class DigestUtil {
     }
 
     /**
-     * AES½âÃÜ
+     * AESè§£å¯†
      * 
      * @param res
-     *            base64Ô´×Ö·û
+     *            base64æºå­—ç¬¦
      * @param key
-     *            base64ÃÜÔ¿
-     * @return ½âÃÜ×Ö·û
+     *            base64å¯†é’¥
+     * @return è§£å¯†å­—ç¬¦
      * @throws NoSuchAlgorithmException
      * @throws NoSuchPaddingException
      * @throws InvalidKeyException
      * @throws IllegalBlockSizeException
      * @throws BadPaddingException
-     * @author: ³Â³¿<br>
+     * @author: é™ˆæ™¨<br>
      * @throws UnsupportedEncodingException
      * @date: 2014-4-25<br>
      */
@@ -382,19 +382,19 @@ public class DigestUtil {
     }
 
     /**
-     * DES¼ÓÃÜ
+     * DESåŠ å¯†
      * 
      * @param res
-     *            Ô´×Ö·û
+     *            æºå­—ç¬¦
      * @param key
-     *            base64ÃÜÔ¿
-     * @return base64¼ÓÃÜ×Ö·û
+     *            base64å¯†é’¥
+     * @return base64åŠ å¯†å­—ç¬¦
      * @throws NoSuchAlgorithmException
      * @throws NoSuchPaddingException
      * @throws InvalidKeyException
      * @throws IllegalBlockSizeException
      * @throws BadPaddingException
-     * @author: ³Â³¿<br>
+     * @author: é™ˆæ™¨<br>
      * @throws UnsupportedEncodingException
      * @date: 2014-4-25<br>
      */
@@ -405,19 +405,19 @@ public class DigestUtil {
     }
 
     /**
-     * DES½âÃÜ
+     * DESè§£å¯†
      * 
      * @param res
-     *            base64Ô´×Ö·û
+     *            base64æºå­—ç¬¦
      * @param key
-     *            base64ÃÜÔ¿
-     * @return ½âÃÜ×Ö·û
+     *            base64å¯†é’¥
+     * @return è§£å¯†å­—ç¬¦
      * @throws NoSuchAlgorithmException
      * @throws NoSuchPaddingException
      * @throws InvalidKeyException
      * @throws IllegalBlockSizeException
      * @throws BadPaddingException
-     * @author: ³Â³¿<br>
+     * @author: é™ˆæ™¨<br>
      * @throws UnsupportedEncodingException
      * @date: 2014-4-25<br>
      */
@@ -428,29 +428,29 @@ public class DigestUtil {
     }
 
     /**
-     * AES/DESÑéÖ¤
+     * AES/DESéªŒè¯
      * 
      * @param res
-     *            Ô´×Ö·û
+     *            æºå­—ç¬¦
      * @param encodeRes
-     *            base64¼ÓÃÜ×Ö·û
+     *            base64åŠ å¯†å­—ç¬¦
      * @param key
-     *            base64ÃÜÔ¿
+     *            base64å¯†é’¥
      * @param type
-     *            ¼ÓÃÜÀàĞÍ
+     *            åŠ å¯†ç±»å‹
      * @return
-     * @author: ³Â³¿<br>
+     * @author: é™ˆæ™¨<br>
      * @date: 2014-4-25<br>
      */
     public static boolean validate(String res, String encodeRes, String key, String type) {
         if (res == null || encodeRes == null || key == null)
             return false;
         if (type == null || !type.matches(AES + "|" + DES))
-            throw new IllegalArgumentException("ÃÜÔ¿ÀàĞÍ´íÎó");
+            throw new IllegalArgumentException("å¯†é’¥ç±»å‹é”™è¯¯");
         try {
-            // ½âÃÜ
+            // è§£å¯†
             String decode = decrypt(encodeRes, key, type);
-            // ÑéÖ¤
+            // éªŒè¯
             return res.equals(decode);
         } catch (Exception e) {
             e.printStackTrace();
@@ -459,16 +459,16 @@ public class DigestUtil {
     }
 
     /**
-     * AESÑéÖ¤
+     * AESéªŒè¯
      * 
      * @param res
-     *            Ô´×Ö·û
+     *            æºå­—ç¬¦
      * @param encodeRes
-     *            base64¼ÓÃÜ×Ö·û
+     *            base64åŠ å¯†å­—ç¬¦
      * @param key
-     *            base64ÃÜÔ¿
+     *            base64å¯†é’¥
      * @return
-     * @author: ³Â³¿<br>
+     * @author: é™ˆæ™¨<br>
      * @date: 2014-4-25<br>
      */
     public static boolean validateAES(String res, String encodeRes, String key) {
@@ -476,16 +476,16 @@ public class DigestUtil {
     }
 
     /**
-     * DESÑéÖ¤
+     * DESéªŒè¯
      * 
      * @param res
-     *            Ô´×Ö·û
+     *            æºå­—ç¬¦
      * @param encodeRes
-     *            base64¼ÓÃÜ×Ö·û
+     *            base64åŠ å¯†å­—ç¬¦
      * @param key
-     *            base64ÃÜÔ¿
+     *            base64å¯†é’¥
      * @return
-     * @author: ³Â³¿<br>
+     * @author: é™ˆæ™¨<br>
      * @date: 2014-4-25<br>
      */
     public static boolean validateDES(String res, String encodeRes, String key) {
@@ -493,8 +493,8 @@ public class DigestUtil {
     }
 
     public static final String decrypt(String data, String secretKey) {
-        byte[] decoded = Base64.decodeBase64(data); // Base64½âÂë
-        byte[] decrypted = tripleDES(Cipher.DECRYPT_MODE, decoded, secretKey.getBytes());// 3DES½âÃÜ
+        byte[] decoded = Base64.decodeBase64(data); // Base64è§£ç 
+        byte[] decrypted = tripleDES(Cipher.DECRYPT_MODE, decoded, secretKey.getBytes());// 3DESè§£å¯†
         return new String(decrypted);
     }
 
@@ -505,17 +505,17 @@ public class DigestUtil {
     private static final byte[] cipher(String algorithm, String transformation, int opmode, byte[] data, byte[] iv,
                                        byte[] secretKey) {
         try {
-            // ×ª»»ÃÜÔ¿
+            // è½¬æ¢å¯†é’¥
             Key key = SecretKeyFactory.getInstance(algorithm)
                     .generateSecret(new DESedeKeySpec(secretKey));
-            // ×ª»»³õÊ¼»¯ÏòÁ¿
+            // è½¬æ¢åˆå§‹åŒ–å‘é‡
             IvParameterSpec spec = new IvParameterSpec(iv);
 
-            // ¼ÓÃÜ½âÃÜÆ÷
+            // åŠ å¯†è§£å¯†å™¨
             Cipher cipher = Cipher.getInstance(transformation);
             cipher.init(opmode, key, spec);
 
-            // ¼ÓÃÜ½âÃÜ²Ù×÷
+            // åŠ å¯†è§£å¯†æ“ä½œ
             return cipher.doFinal(data);
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -524,7 +524,7 @@ public class DigestUtil {
 
     /*******************************************************************************
      * 
-     * TODO ²âÊÔ
+     * TODO æµ‹è¯•
      * 
      *******************************************************************************/
 
@@ -532,9 +532,9 @@ public class DigestUtil {
 
         // AES
         System.out.println("--------------------------------------------------");
-        String res = "-128 3370 & ÖĞÎÄ | 10²âÊÔ..........";
+        String res = "-128 3370 & ä¸­æ–‡ | 10æµ‹è¯•..........";
         System.out.println(res);
-        // System.out.println("²é¿´res×Ö·û´®µÄ±àÂë¸ñÊ½£º"+CheckCharEncoding.getEncoding(res));
+        // System.out.println("æŸ¥çœ‹reså­—ç¬¦ä¸²çš„ç¼–ç æ ¼å¼ï¼š"+CheckCharEncoding.getEncoding(res));
 
         String key = DigestUtil.generateKey(DigestUtil.AES, AES_KEY_128);
         System.out.println(key + " : " + key.length() * 4);
@@ -542,39 +542,39 @@ public class DigestUtil {
 
         // AES_KEY_128:iYml4/SqJf+tvrcpwgO3yw==
 
-        // AES¼ÓÃÜ
+        // AESåŠ å¯†
         String dres = DigestUtil.encryptAES(new String(res.getBytes(), "utf-8"), key);
         System.out.println(dres);
-        // System.out.println("²é¿´dres×Ö·û´®µÄ±àÂë¸ñÊ½£º"+CheckCharEncoding.getEncoding(DigestUtil.encryptAES(res,
+        // System.out.println("æŸ¥çœ‹dreså­—ç¬¦ä¸²çš„ç¼–ç æ ¼å¼ï¼š"+CheckCharEncoding.getEncoding(DigestUtil.encryptAES(res,
         // key)));
         String dres1 = DigestUtil.encryptAES(res, "iYml4/SqJf+tvrcpwgO3yw==");
         System.out.println(dres1);
-        /////////////////////////////////////// ²éÑ¯Ö§¸¶¶©µ¥ĞÅÏ¢¼ÓÃÜ²âÊÔ---begin///////////////////////////////////////////////////
+        /////////////////////////////////////// æŸ¥è¯¢æ”¯ä»˜è®¢å•ä¿¡æ¯åŠ å¯†æµ‹è¯•---begin///////////////////////////////////////////////////
         /*
          * {"transactionid": "id1232q213", "payment": "yudsd"}
          */
         String dres2 = DigestUtil.encryptAES("id1232q213", "iYml4/SqJf+tvrcpwgO3yw==");
         String dres3 = DigestUtil.encryptAES("yudsd", "iYml4/SqJf+tvrcpwgO3yw==");
-        System.out.println("======²éÑ¯Ö§¸¶¶©µ¥ĞÅÏ¢¼ÓÃÜ²âÊÔ---begin=======");
+        System.out.println("======æŸ¥è¯¢æ”¯ä»˜è®¢å•ä¿¡æ¯åŠ å¯†æµ‹è¯•---begin=======");
         System.out.println("transactionid=" + dres2);
         System.out.println("payment=" + dres3);
-        System.out.println("======²éÑ¯Ö§¸¶¶©µ¥ĞÅÏ¢¼ÓÃÜ²âÊÔ---end=========");
+        System.out.println("======æŸ¥è¯¢æ”¯ä»˜è®¢å•ä¿¡æ¯åŠ å¯†æµ‹è¯•---end=========");
         /*
          * {"transactionid":"ySjj15nY0C41V4u2+H30ag==",
          * "payment":"vEYOcZiqikcYbWn3ttMqWA=="}
          */
-        /////////////////////////////////////// ²éÑ¯Ö§¸¶¶©µ¥ĞÅÏ¢¼ÓÃÜ²âÊÔ---end////////////////////////////////////////////////////
+        /////////////////////////////////////// æŸ¥è¯¢æ”¯ä»˜è®¢å•ä¿¡æ¯åŠ å¯†æµ‹è¯•---end////////////////////////////////////////////////////
 
-        /////////////////////////////////////// ĞŞ¸ÄÖ§¸¶¶©µ¥ĞÅÏ¢ÍË·Ñ×´Ì¬---begin///////////////////////////////////////////////////
+        /////////////////////////////////////// ä¿®æ”¹æ”¯ä»˜è®¢å•ä¿¡æ¯é€€è´¹çŠ¶æ€---begin///////////////////////////////////////////////////
         /*
          * {"transactionid": "id1232q213", "refund_status": "yudsd"}
          */
         String dres4 = DigestUtil.encryptAES("id1232q213", "iYml4/SqJf+tvrcpwgO3yw==");
         String dres5 = DigestUtil.encryptAES("1", "iYml4/SqJf+tvrcpwgO3yw==");
-        System.out.println("======ĞŞ¸ÄÖ§¸¶¶©µ¥ĞÅÏ¢ÍË·Ñ×´Ì¬---begin=======");
+        System.out.println("======ä¿®æ”¹æ”¯ä»˜è®¢å•ä¿¡æ¯é€€è´¹çŠ¶æ€---begin=======");
         System.out.println("transactionid=" + dres4);
         System.out.println("refund_status=" + dres5);
-        System.out.println("======ĞŞ¸ÄÖ§¸¶¶©µ¥ĞÅÏ¢ÍË·Ñ×´Ì¬---end=========");
+        System.out.println("======ä¿®æ”¹æ”¯ä»˜è®¢å•ä¿¡æ¯é€€è´¹çŠ¶æ€---end=========");
         /*
          * transactionid=ySjj15nY0C41V4u2+H30ag==
          * refund_status=2h/iKJLTyNsWWGPWTjFzRQ==
@@ -588,17 +588,17 @@ public class DigestUtil {
         String drestransactionid = DigestUtil.encryptAES(
                 "{\"transactionid\": \"id1232q213\",\"payment\":\"yudsd\"}",
                 "iYml4/SqJf+tvrcpwgO3yw==");
-        System.out.println("findPayInfoAPI¼ÓÃÜ={" + drestransactionid);
+        System.out.println("findPayInfoAPIåŠ å¯†={" + drestransactionid);
         String dresrefund_status = DigestUtil.encryptAES(
                 "{\"transactionid\":\"id1232q213\",\"refund_status\":1}",
                 "iYml4/SqJf+tvrcpwgO3yw==");
-        System.out.println("updateRefundStatus¼ÓÃÜ={" + dresrefund_status);
+        System.out.println("updateRefundStatusåŠ å¯†={" + dresrefund_status);
         /*
-         * findPayInfoAPI¼ÓÃÜ=
+         * findPayInfoAPIåŠ å¯†=
          * N+lZPkk9DkBaIThV7teztpPc6bbXGr0QZxD7AcEVeMu6jHOoTcPg0OkWGe3bpwL1H85/
          * L5XXscVkVFxh4fLfrQ==
          * 
-         * updateRefundStatus¼ÓÃÜ=
+         * updateRefundStatusåŠ å¯†=
          * 
          * N+lZPkk9DkBaIThV7teztnZxWYfwK0paGXNnL6M412MO4cUXbYIuKYDC/
          * YLXTXI0WgAyAl2uMpEaCHu+USiA4w==
@@ -608,16 +608,16 @@ public class DigestUtil {
         String s1 = DigestUtil.decryptAES(
                 "seuPx/wgbolDZIbKSp1YMfyvXWOdd/z80blo22UioUAE/y3NDYPsocHbBkXyAMb6Oc5cYtzWd/5Orm2fJ1nvjA==",
                 "iYml4/SqJf+tvrcpwgO3yw==");
-        System.out.println("findPayInfoAPI½âÃÜ=\n" + s1);
+        System.out.println("findPayInfoAPIè§£å¯†=\n" + s1);
         String s2 = DigestUtil.decryptAES(
                 "N+lZPkk9DkBaIThV7teztnZxWYfwK0paGXNnL6M412MO4cUXbYIuKYDC/YLXTXI0WgAyAl2uMpEaCHu+USiA4w==",
                 "iYml4/SqJf+tvrcpwgO3yw==");
-        System.out.println("updateRefundStatus½âÃÜ=\n" + s2);
+        System.out.println("updateRefundStatusè§£å¯†=\n" + s2);
 
         String rrr = "{" + "\"description\": \"221212232\"," + "\"status\": \"0\","
                 + "\"subject\": \"12132\"," + "\"title\": \"title\","
                 + "\"transactionid\": \"id1232q213\"," + "\"payment\": \"yudsd\","
-                + "\"payid\": \"121323\"," + "\"trans_money\": 100," + "\"payway\": \"ÊÖ»ú\","
+                + "\"payid\": \"121323\"," + "\"trans_money\": 100," + "\"payway\": \"æ‰‹æœº\","
                 + "\"plug_version\": \"v1.0.0.0\"," + "\"pay_type\": 2,"
                 + "\"return_url\": \"www.1232.121\"," + "\"notification_url\": \"localhost\","
                 + "\"trans_time\": 1441782638000," + "\"comp_time\": 1441782638000,"
@@ -639,7 +639,7 @@ public class DigestUtil {
                 .fromObject("{\"transactionid\":\"id1232q213\",\"refund_status\":1}");
         String RefundStatus = DigestUtil.encryptAES(jsonobjectRefundStatus.toString(),
                 "iYml4/SqJf+tvrcpwgO3yw==");
-        System.out.println("======TESTupdateRefundStatusAPI ²ÎÊı¼ÓÃÜ==========\n" + RefundStatus);
+        System.out.println("======TESTupdateRefundStatusAPI å‚æ•°åŠ å¯†==========\n" + RefundStatus);
         String ssss2 = DigestUtil.decryptAES(ddd, "iYml4/SqJf+tvrcpwgO3yw==");
 
         String RETURNupdateRefundStatusAPI = DigestUtil.decryptAES("2h/iKJLTyNsWWGPWTjFzRQ==",
@@ -648,25 +648,25 @@ public class DigestUtil {
                 + RETURNupdateRefundStatusAPI);
 
         System.out.println("======TESTjson->string==========\n" + jsonobject.toString());
-        // System.out.println("======TESTfindPayInfoAPI¼ÓÃÜ==========\n"+s3);
-        System.out.println("======TESTfindPayInfoAPI ²ÎÊı¼ÓÃÜ1==========\n" + ddd);
-        System.out.println("======TESTfindPayInfoAPI ²ÎÊı¼ÓÃÜ2==========\n" + s333);
-        System.out.println("======TESTfindPayInfoAPI½âÃÜ1==========\n" + ssss2);
+        // System.out.println("======TESTfindPayInfoAPIåŠ å¯†==========\n"+s3);
+        System.out.println("======TESTfindPayInfoAPI å‚æ•°åŠ å¯†1==========\n" + ddd);
+        System.out.println("======TESTfindPayInfoAPI å‚æ•°åŠ å¯†2==========\n" + s333);
+        System.out.println("======TESTfindPayInfoAPIè§£å¯†1==========\n" + ssss2);
 
         String ssss333 = DigestUtil.decryptAES(s333, "iYml4/SqJf+tvrcpwgO3yw==");
-        System.out.println("======TESTfindPayInfoAPI½âÃÜ2==========\n" + ssss333);
+        System.out.println("======TESTfindPayInfoAPIè§£å¯†2==========\n" + ssss333);
         String ssss2222 = DigestUtil.decryptAES(EE, "iYml4/SqJf+tvrcpwgO3yw==");
 
-        System.out.println("======s3¼ÓÃÜ->string==========\n" + s3);
-        System.out.println("======s3½âÃÜ->string==========\n"
+        System.out.println("======s3åŠ å¯†->string==========\n" + s3);
+        System.out.println("======s3è§£å¯†->string==========\n"
                 + DigestUtil.decryptAES(s3, "iYml4/SqJf+tvrcpwgO3yw=="));
-        // System.out.println("²é¿´s3×Ö·û´®µÄ±àÂë¸ñÊ½£º"+CheckCharEncoding.getEncoding(DigestUtil.encryptAES(s3,
+        // System.out.println("æŸ¥çœ‹s3å­—ç¬¦ä¸²çš„ç¼–ç æ ¼å¼ï¼š"+CheckCharEncoding.getEncoding(DigestUtil.encryptAES(s3,
         // key)));
-        System.out.println("java»·¾³Ä¬ÈÏµÄ×Ö·û±àÂë£º" + Charset.defaultCharset());
+        System.out.println("javaç¯å¢ƒé»˜è®¤çš„å­—ç¬¦ç¼–ç ï¼š" + Charset.defaultCharset());
 
-        /////////////////////////////////////// ĞŞ¸ÄÖ§¸¶¶©µ¥ĞÅÏ¢ÍË·Ñ×´Ì¬---end////////////////////////////////////////////////////
+        /////////////////////////////////////// ä¿®æ”¹æ”¯ä»˜è®¢å•ä¿¡æ¯é€€è´¹çŠ¶æ€---end////////////////////////////////////////////////////
 
-        // ½âÃÜ
+        // è§£å¯†
         dres = DigestUtil.decryptAES(new String(dres.getBytes(), "utf-8"), key);
         System.out.println(dres);
 
@@ -675,7 +675,7 @@ public class DigestUtil {
 
         // byte 2 hex
         System.out.println("--------------------------------------------------");
-        res = "ÖĞÎÄaaa123123";
+        res = "ä¸­æ–‡aaa123123";
         System.out.println(res);
         // dres = ConvertUtil.bytes2Hex(res.getBytes());
         // System.out.println(dres);
@@ -689,16 +689,16 @@ public class DigestUtil {
         // System.out.println(binary);
         // System.out.println(ConvertUtil.binary2Byte(binary));
 
-        System.out.println("======TESTfindPayInfoAPI½âÃÜ3==========\n" + ssss2222);
+        System.out.println("======TESTfindPayInfoAPIè§£å¯†3==========\n" + ssss2222);
         String requsturl = "0Yjmy5zymWx3u4Qyr++4pl2Pd0hte4Ra1PaptNiDYpAlRQiGJOTmNWWR5n2cDBjlJwKMNAQYGQvdKsFex9WZHqnWzkG3udex+40D8CUsF3y4igEQXazKmsMud1G8qyEnDF8wwnZFFND8omTC3+IfkyYclQJfDuHfGzEw1n3zyRtKAIa9NSW3r9hoJGWs0KLSNK/A3557YxCrlPlNT+PfXO17XbkDAP1nmN3NJnAFdUA6+PR+xio+l95hWX0ZpvOtUmhUxog3fvorw7oXWO1/k5p0iWKI3R0vUzGdqa78QsfYm1o1BxCIC7Ny1N0d0GHa7+Lv1rb7Zlda5uxTR6KoFBHb/+S7Ijcuv+U4dUjb0B+DBRbif1OcrUb6EVJXs+AelCGz+lMDixG47/SwbSRS+N0szeclLJ1PKvhk9JFI/6AtU4otxdxuxdcXrO0CI0VJHNvrx++NSZkdMevjf4k8yQOU0/ITZOTf7RAOCCpBsfYdOdBLdKwJem/FgPiTYCr6snxY8Gi40RJ7TMY2AG7vEGIG7aCYieHHLBVE+MwitFZ4/QDZHF1jmcyvief6YjrAJkg9aJCflD2k4323tQwMRkyfnP0GcTunG7cQSCtF/KxYqb2NxGi8/lVswmR3UXHTX6W9RZvXTbLDRn9qWf2U4vZUpTcLdcxPTfCxeClOEarJHwCjpOjW/KkXY+V7Y0Lpep8/AmsJ/WA8bdqlx+z/MklX7o+0++7LuFPmjtUgfPxg1qQob7mfNh3UEtOtG3Iv54zjeTTjHZU1npEzpf8gY7rB7jfnf0MBzOFiftJlH/RbBUvE0JnXuvTBLLHVCA8ByD8BzBUmwj7V4ECmHg6aJqtR/YU3qVJlDET3EGEB+0RdoyJDyXG74XDL07FUwQs1";
-        // System.out.println("²é¿´×Ö·û´®µÄ±àÂë¸ñÊ½£º"+CheckCharEncoding.getEncoding(requsturl));
+        // System.out.println("æŸ¥çœ‹å­—ç¬¦ä¸²çš„ç¼–ç æ ¼å¼ï¼š"+CheckCharEncoding.getEncoding(requsturl));
         String requsturl2 = new String(requsturl.getBytes(), "ISO-8859-1");
-        // System.out.println("²é¿´×ª»¯ºó×Ö·û´®µÄ±àÂë¸ñÊ½£º"+CheckCharEncoding.getEncoding(requsturl2));
+        // System.out.println("æŸ¥çœ‹è½¬åŒ–åå­—ç¬¦ä¸²çš„ç¼–ç æ ¼å¼ï¼š"+CheckCharEncoding.getEncoding(requsturl2));
         // System.out.println("requsturl====\n"+new String
         // (DigestUtil.decryptAES(requsturl,"iYml4/SqJf+tvrcpwgO3yw==").getBytes("ISO-8859-1"),"GB2312"));
         System.out.println(
                 "requsturl====\n" + DigestUtil.decryptAES(requsturl, "iYml4/SqJf+tvrcpwgO3yw=="));
-        System.out.println("requsturl±àÂë====\n" + DigestUtil.decryptAES(
+        System.out.println("requsturlç¼–ç ====\n" + DigestUtil.decryptAES(
                 "DJovS/I4gm/n7Y9bZMgF5bjAA+Kmp9XECkqlKnOXqI4=", "iYml4/SqJf+tvrcpwgO3yw=="));
 
         System.out
@@ -726,11 +726,11 @@ public class DigestUtil {
         String necrypefindPayInfo = DigestUtil.encryptAES(
                 "{\"transactionid\":\"id1232\",\"payment\":\"yudsd\",\"begintrans_time\":\"2015-09-09 15:10:38\",\"endtrans_time\":\"2015-09-09 15:10:38\"}",
                 "iYml4/SqJf+tvrcpwgO3yw==");
-        System.out.println("findPayInfoAPI¼ÓÃÜ={" + necrypefindPayInfo);
+        System.out.println("findPayInfoAPIåŠ å¯†={" + necrypefindPayInfo);
         String necrypefindPayInfos = DigestUtil.encryptAES("{\"payment\":\"yudsd\"}",
                 "iYml4/SqJf+tvrcpwgO3yw==");
 
-        System.out.println("findPayInfoAPIs¼ÓÃÜ={" + necrypefindPayInfos);
+        System.out.println("findPayInfoAPIsåŠ å¯†={" + necrypefindPayInfos);
 
         System.out.println("test:" + DigestUtil.decryptAES(
                 "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",

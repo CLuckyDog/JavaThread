@@ -1,6 +1,6 @@
 /*
  * Copyright (c) 2016, Asiainfo-Linkage. All rights reserved.<br>
- * Asiainfo-Linkage PROPRIETARY/CONFIDENTIAL. Use is subject to license terms. 
+ * Asiainfo-Linkage PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  */
 package com.rh.utils;
 
@@ -39,6 +39,7 @@ import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.io.UnsupportedEncodingException;
+import java.net.SocketTimeoutException;
 import java.net.URI;
 import java.net.URL;
 import java.net.URLConnection;
@@ -50,36 +51,36 @@ import java.util.Map;
 
 /**
  * <p>
- * <b>°æÈ¨£º</b>Copyright (c) 2016 ÑÇĞÅ.<br>
- * <b>¹¤³Ì£º</b>epgstb<br>
- * <b>ÎÄ¼ş£º</b>HttpUtil.java<br>
- * <b>´´½¨ÈË£º</b> zhaoyj	71919<br>
- * <b>´´½¨Ê±¼ä£º</b>2016-3-23 ÏÂÎç2:47:19<br>
+ * <b>ç‰ˆæƒï¼š</b>Copyright (c) 2016 äºšä¿¡.<br>
+ * <b>å·¥ç¨‹ï¼š</b>epgstb<br>
+ * <b>æ–‡ä»¶ï¼š</b>HttpUtil.java<br>
+ * <b>åˆ›å»ºäººï¼š</b> zhaoyj	71919<br>
+ * <b>åˆ›å»ºæ—¶é—´ï¼š</b>2016-3-23 ä¸‹åˆ2:47:19<br>
  * <p>
- * <b>½­Î÷¼¯Ô¼»¯·â×°httpclient.</b><br>
- * ½­Î÷¼¯Ô¼»¯·â×°httpclient.<br>
+ * <b>æ±Ÿè¥¿é›†çº¦åŒ–å°è£…httpclient.</b><br>
+ * æ±Ÿè¥¿é›†çº¦åŒ–å°è£…httpclient.<br>
  * </p>
  *
  * @author zhaoyj
- * @see [Ïà¹ØÀà/·½·¨]
- * @since [²úÆ·/Ä£¿é°æ±¾] 
+ * @see [ç›¸å…³ç±»/æ–¹æ³•]
+ * @since [äº§å“/æ¨¡å—ç‰ˆæœ¬]
  */
 public class HttpUtil {
-	
-	// ÊÇ·ñÒÑ¹Ø±Õ
+
+	// æ˜¯å¦å·²å…³é—­
 	private boolean isShutdown = false;
-	// Ä¬ÈÏ×Ö·û±àÂëÎªUTF-8
+	// é»˜è®¤å­—ç¬¦ç¼–ç ä¸ºUTF-8
 	private static final String DEFAULT_CONTENT_CHARSET = "UTF-8";
-	// 
+	//
 	private static final String DEFAULT_ELEMENT_CHARSET = "UTF-8";
-	
+
 	//private static final String DEFAULT_IMAGE_FOLDER = "e:/upload/news";
 	//private static final String DEFAULT_IMAGE_FOLDER = "/temp";
-	
+
 	private HttpClient httpclient;
-	
+
 	private HttpRequestBase request;
-	
+
 	public HttpUtil() {
 		httpclient = new DefaultHttpClient();
 		this.useCharset(DEFAULT_CONTENT_CHARSET);
@@ -88,23 +89,23 @@ public class HttpUtil {
 		httpclient.getParams().setParameter(
 				HttpProtocolParams.PROTOCOL_VERSION, HttpVersion.HTTP_1_1);
 	}
-	
+
 	/**
-	 * Ê¹ÓÃHTTPÇëÇó·½Ê½
+	 * ä½¿ç”¨HTTPè¯·æ±‚æ–¹å¼
 	 */
 	public HttpUtil useHttps() {
 		try {
-            TrustManager easyTrustManager = new X509TrustManager() {
-                public void checkClientTrusted(java.security.cert.X509Certificate[] x509Certificates, String s) throws java.security.cert.CertificateException {
-                    //To change body of implemented methods use File | Settings | File Templates.
-                }
-                public void checkServerTrusted(java.security.cert.X509Certificate[] x509Certificates, String s) throws java.security.cert.CertificateException {
-                    //To change body of implemented methods use File | Settings | File Templates.
-                }
-                public java.security.cert.X509Certificate[] getAcceptedIssuers() {
-                    return new java.security.cert.X509Certificate[0];  //To change body of implemented methods use File | Settings | File Templates.
-                }
-            };
+			TrustManager easyTrustManager = new X509TrustManager() {
+				public void checkClientTrusted(java.security.cert.X509Certificate[] x509Certificates, String s) throws java.security.cert.CertificateException {
+					//To change body of implemented methods use File | Settings | File Templates.
+				}
+				public void checkServerTrusted(java.security.cert.X509Certificate[] x509Certificates, String s) throws java.security.cert.CertificateException {
+					//To change body of implemented methods use File | Settings | File Templates.
+				}
+				public java.security.cert.X509Certificate[] getAcceptedIssuers() {
+					return new java.security.cert.X509Certificate[0];  //To change body of implemented methods use File | Settings | File Templates.
+				}
+			};
 
 			SSLContext sslcontext = SSLContext.getInstance("TLS");
 			sslcontext.init(null, new TrustManager[] { easyTrustManager }, new java.security.SecureRandom());
@@ -113,28 +114,28 @@ public class HttpUtil {
 			httpclient.getConnectionManager().getSchemeRegistry().register(new Scheme("https", 443, ssf));
 		} catch (Exception e) {
 		}
-		
+
 		return this;
 	}
-	
+
 	/**
-	 * Ê¹ÓÃHTTPµÄGET·½Ê½·¢ÆğÇëÇó
+	 * ä½¿ç”¨HTTPçš„GETæ–¹å¼å‘èµ·è¯·æ±‚
 	 */
 	public HttpUtil useHttpGet() {
 		this.request = new HttpGet();
 		return this;
 	}
-	
+
 	/**
-	 * Ê¹ÓÃHTTPµÄPOST·½Ê½·¢ÆğÇëÇó
+	 * ä½¿ç”¨HTTPçš„POSTæ–¹å¼å‘èµ·è¯·æ±‚
 	 */
 	public HttpUtil useHttpPost() {
 		this.request = new HttpPost();
 		return this;
 	}
-	
+
 	/**
-	 * Ê¹ÓÃÌØ¶¨±àÂë×÷ÎªÇëÇó×Ö·û±àÂë
+	 * ä½¿ç”¨ç‰¹å®šç¼–ç ä½œä¸ºè¯·æ±‚å­—ç¬¦ç¼–ç 
 	 * @param charset
 	 * @return
 	 */
@@ -143,13 +144,13 @@ public class HttpUtil {
 				HttpProtocolParams.HTTP_CONTENT_CHARSET, charset);
 		return this;
 	}
-	
+
 	/**
-	 * ÉèÖÃ³¬Ê±
-	 * 
+	 * è®¾ç½®è¶…æ—¶
+	 *
 	 * @param connectionTimeout The timeout until a connection is established. A value of zero means the timeout is not used.
-	 * @param soTimeout The default socket timeout (SO_TIMEOUT) in milliseconds which is the timeout for waiting for data. A timeout value of zero is interpreted as an infinite timeout. 
-	 * @param connectionManagerTimeout The timeout in milliseconds used when retrieving an HTTP connection from the HTTP connection manager. 0 means to wait indefinitely. 
+	 * @param soTimeout The default socket timeout (SO_TIMEOUT) in milliseconds which is the timeout for waiting for data. A timeout value of zero is interpreted as an infinite timeout.
+	 * @param connectionManagerTimeout The timeout in milliseconds used when retrieving an HTTP connection from the HTTP connection manager. 0 means to wait indefinitely.
 	 * @return
 	 */
 	public HttpUtil timeout(Integer connectionTimeout, Integer soTimeout, Long connectionManagerTimeout) {
@@ -164,9 +165,9 @@ public class HttpUtil {
 		}
 		return this;
 	}
-	
+
 	/**
-	 * ´«µİPOST²ÎÊı
+	 * ä¼ é€’POSTå‚æ•°
 	 * @param params
 	 */
 	public void postParams(Map<String, String> params) {
@@ -183,9 +184,9 @@ public class HttpUtil {
 			}
 		}
 	}
-	
+
 	/**
-	 * ´«µİPOST²ÎÊı
+	 * ä¼ é€’POSTå‚æ•°
 	 * @param strParams
 	 */
 	public void postParams(String strParams) {
@@ -198,33 +199,33 @@ public class HttpUtil {
 			}
 		}
 	}
-	
+
 	/**
-	 * »ñÈ¡http POSTÇëÇó²ÎÊı
+	 * è·å–http POSTè¯·æ±‚å‚æ•°
 	 * @param req
 	 * @return
 	 * @throws UnsupportedEncodingException
 	 */
 	@SuppressWarnings("rawtypes")
 	public static Map<String, String> getPostParams(HttpServletRequest req) throws UnsupportedEncodingException {
-        Map<String, String> params = new HashMap<String, String>();
-        Map requestParams = req.getParameterMap();
-        for (Iterator iter = requestParams.keySet().iterator(); iter.hasNext();) {
-            String name = (String) iter.next();
-            String[] values = (String[]) requestParams.get(name);
-            String valueStr = "";
-            for (int i = 0; i < values.length; i++) {
-                valueStr = (i == values.length - 1) ? valueStr + values[i] : valueStr + values[i] + ",";
-            }
-            // ÂÒÂë½â¾ö£¬Õâ¶Î´úÂëÔÚ³öÏÖÂÒÂëÊ±Ê¹ÓÃ¡£Èç¹ûmysignºÍsign²»ÏàµÈÒ²¿ÉÒÔÊ¹ÓÃÕâ¶Î´úÂë×ª»¯
-            valueStr = new String(valueStr.getBytes("ISO-8859-1"), "UTF-8");
-            params.put(name, valueStr);
-        }
-        return params;
+		Map<String, String> params = new HashMap<String, String>();
+		Map requestParams = req.getParameterMap();
+		for (Iterator iter = requestParams.keySet().iterator(); iter.hasNext();) {
+			String name = (String) iter.next();
+			String[] values = (String[]) requestParams.get(name);
+			String valueStr = "";
+			for (int i = 0; i < values.length; i++) {
+				valueStr = (i == values.length - 1) ? valueStr + values[i] : valueStr + values[i] + ",";
+			}
+			// ä¹±ç è§£å†³ï¼Œè¿™æ®µä»£ç åœ¨å‡ºç°ä¹±ç æ—¶ä½¿ç”¨ã€‚å¦‚æœmysignå’Œsignä¸ç›¸ç­‰ä¹Ÿå¯ä»¥ä½¿ç”¨è¿™æ®µä»£ç è½¬åŒ–
+			valueStr = new String(valueStr.getBytes("ISO-8859-1"), "UTF-8");
+			params.put(name, valueStr);
+		}
+		return params;
 	}
 
 	/**
-	 * »ñÈ¡ÇëÇóurlµÄ×Ö·û´®½á¹û
+	 * è·å–è¯·æ±‚urlçš„å­—ç¬¦ä¸²ç»“æœ
 	 * @param url
 	 * @return
 	 * @throws Exception
@@ -236,7 +237,7 @@ public class HttpUtil {
 			if (request != null) {
 				request.setURI(new URI(url));
 			} else {
-				request = new HttpGet(url); // Ä¬ÈÏÊ¹ÓÃGET·½Ê½ÇëÇó
+				request = new HttpGet(url); // é»˜è®¤ä½¿ç”¨GETæ–¹å¼è¯·æ±‚
 			}
 			ResponseHandler<String> responseHandler = new BasicResponseHandler();
 			text = httpclient.execute(request, responseHandler);
@@ -249,7 +250,7 @@ public class HttpUtil {
 		}
 		return text;
 	}
-	
+
 	public String getResponseText(String url, String strCharset) {
 		if (isShutdown()) return null;
 		String text = null;
@@ -258,14 +259,14 @@ public class HttpUtil {
 			if (request != null) {
 				request.setURI(new URI(url));
 			} else {
-				request = new HttpGet(url); // Ä¬ÈÏÊ¹ÓÃGET·½Ê½ÇëÇó
+				request = new HttpGet(url); // é»˜è®¤ä½¿ç”¨GETæ–¹å¼è¯·æ±‚
 			}
 			HttpResponse response = httpclient.execute(request);
-			if (response.getStatusLine().getStatusCode() != 200) {  
-				if (!request.isAborted()) request.abort();  
-	            return null;
-	        }
-			
+			if (response.getStatusLine().getStatusCode() != 200) {
+				if (!request.isAborted()) request.abort();
+				return null;
+			}
+
 			HttpEntity entity = response.getEntity();
 			if (entity != null) {
 				is = entity.getContent();
@@ -286,155 +287,155 @@ public class HttpUtil {
 		}
 		return null;
 	}
-	
+
 
 	public HttpClient getHttpClient() {
 		return httpclient;
 	}
-	
+
 	public void shutdown() {
 		httpclient.getConnectionManager().shutdown();
 		isShutdown = true;
 	}
-	
+
 	public boolean isShutdown() {
 		return isShutdown;
 	}
-	
+
 	public static void main(String[] args) {
-	    String URL="http://117.27.128.186:35309/itv-open/";
-	    String appId="10000006";
-	    String timestamp=DateUtil.getNowTimeStamp();
-        String auth=MD5.digest(appId+timestamp);
-	    String paramInfo=DES3Util.encryptMsg("itvAccount=iptv7819126038","PRBSQBQHMO1T3DZPOLWCI7ILTN9F6V5OIX8SWYZVGTDNC67H");
-        URL+="appId="+appId+"&timestamp="+timestamp+"&paramInfo="+paramInfo+"&auth="+auth;
+		String URL="http://117.27.128.186:35309/itv-open/";
+		String appId="10000006";
+		String timestamp=DateUtil.getNowTimeStamp();
+		String auth=MD5.digest(appId+timestamp);
+		String paramInfo=DES3Util.encryptMsg("itvAccount=iptv7819126038","PRBSQBQHMO1T3DZPOLWCI7ILTN9F6V5OIX8SWYZVGTDNC67H");
+		URL+="appId="+appId+"&timestamp="+timestamp+"&paramInfo="+paramInfo+"&auth="+auth;
 
 		try {
-            String sbBack = HttpUtil.sendGet(URL);
-            JSONObject jsonObject = JSONObject.fromObject(sbBack);
-            String areaCode = (String) jsonObject.get("areaCode");
-        } catch (HttpResponseException e) {
+			String sbBack = HttpUtil.sendGet(URL);
+			JSONObject jsonObject = JSONObject.fromObject(sbBack);
+			String areaCode = (String) jsonObject.get("areaCode");
+		} catch (HttpResponseException e) {
 			e.printStackTrace();
 		}
 
 	}
-	
+
 	/**
-     * ÏòÖ¸¶¨URL·¢ËÍGET·½·¨µÄÇëÇó
-     * @param url ·¢ËÍÇëÇóµÄURL
-     * @return URL Ëù´ú±íÔ¶³Ì×ÊÔ´µÄÏìÓ¦½á¹û
-     */
-    public static String sendGet(String url) throws HttpResponseException {
-        String result = "";
-        BufferedReader in = null;
-        try {
-            String urlNameString = url;
-            URL realUrl = new URL(urlNameString);
-            // ´ò¿ªºÍURLÖ®¼äµÄÁ¬½Ó
-            URLConnection connection = realUrl.openConnection();
-            // ÉèÖÃÍ¨ÓÃµÄÇëÇóÊôĞÔ
-            connection.setConnectTimeout(2000);
-            connection.setRequestProperty("accept", "*/*");
-            connection.setRequestProperty("connection", "Keep-Alive");
-            connection.setRequestProperty("user-agent", "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1;SV1)");
-            // ½¨Á¢Êµ¼ÊµÄÁ¬½Ó
-            connection.connect();
-            // »ñÈ¡ËùÓĞÏìÓ¦Í·×Ö¶Î
-            Map<String, List<String>> map = connection.getHeaderFields();
-            // ±éÀúËùÓĞµÄÏìÓ¦Í·×Ö¶Î
-            for (String key : map.keySet()) {
-                System.out.println(key + "--->" + map.get(key));
-            }
-            // ¶¨Òå BufferedReaderÊäÈëÁ÷À´¶ÁÈ¡URLµÄÏìÓ¦
-            in = new BufferedReader(new InputStreamReader(connection.getInputStream(),"utf-8"));
-            String line;
-            while ((line = in.readLine()) != null) {
-                result += line;
-            }
+	 * å‘æŒ‡å®šURLå‘é€GETæ–¹æ³•çš„è¯·æ±‚
+	 * @param url å‘é€è¯·æ±‚çš„URL
+	 * @return URL æ‰€ä»£è¡¨è¿œç¨‹èµ„æºçš„å“åº”ç»“æœ
+	 */
+	public static String sendGet(String url) throws HttpResponseException {
+		String result = "";
+		BufferedReader in = null;
+		try {
+			String urlNameString = url;
+			URL realUrl = new URL(urlNameString);
+			// æ‰“å¼€å’ŒURLä¹‹é—´çš„è¿æ¥
+			URLConnection connection = realUrl.openConnection();
+			// è®¾ç½®é€šç”¨çš„è¯·æ±‚å±æ€§
+			connection.setConnectTimeout(2000);
+			connection.setRequestProperty("accept", "*/*");
+			connection.setRequestProperty("connection", "Keep-Alive");
+			connection.setRequestProperty("user-agent", "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1;SV1)");
+			// å»ºç«‹å®é™…çš„è¿æ¥
+			connection.connect();
+			// è·å–æ‰€æœ‰å“åº”å¤´å­—æ®µ
+			Map<String, List<String>> map = connection.getHeaderFields();
+			// éå†æ‰€æœ‰çš„å“åº”å¤´å­—æ®µ
+			for (String key : map.keySet()) {
+				System.out.println(key + "--->" + map.get(key));
+			}
+			// å®šä¹‰ BufferedReaderè¾“å…¥æµæ¥è¯»å–URLçš„å“åº”
+			in = new BufferedReader(new InputStreamReader(connection.getInputStream(),"utf-8"));
+			String line;
+			while ((line = in.readLine()) != null) {
+				result += line;
+			}
 			System.out.println("--------------");
-        } catch (HttpResponseException e){
+		} catch (HttpResponseException e){
 			System.out.println(e);
 		}
 
 //        catch (SocketTimeoutException e1){
-//			System.out.println("·¢ËÍGETÇëÇó³öÏÖÒì³££¡" + e1);
+//			System.out.println("å‘é€GETè¯·æ±‚å‡ºç°å¼‚å¸¸ï¼" + e1);
 //			result="";
 //			String message = e1.getMessage();
 //			Throwable cause = e1.getCause();
 //			getExceptionAllinformation(e1);
 //		}
-        catch (Exception e2) {
-				throw new HttpResponseException(404, "Not Found");
+		catch (Exception e2) {
+			throw new HttpResponseException(404, "Not Found");
 
 		}
-        // Ê¹ÓÃfinally¿éÀ´¹Ø±ÕÊäÈëÁ÷
-        finally {
-            try {
-                if (in != null) {
-                    in.close();
-                }
-            } catch (Exception e3) {
-                e3.printStackTrace();
-            }
-        }
-        return result;
-    }
+		// ä½¿ç”¨finallyå—æ¥å…³é—­è¾“å…¥æµ
+		finally {
+			try {
+				if (in != null) {
+					in.close();
+				}
+			} catch (Exception e3) {
+				e3.printStackTrace();
+			}
+		}
+		return result;
+	}
 
-    /**
-     * ÏòÖ¸¶¨ URL ·¢ËÍPOST·½·¨µÄÇëÇó
-	 * @param url	·¢ËÍÇëÇóµÄ URL
-     * @param param	ÇëÇó²ÎÊı£¬ÇëÇó²ÎÊıÓ¦¸ÃÊÇ name1=value1&name2=value2 µÄĞÎÊ½¡£
-     * @return Ëù´ú±íÔ¶³Ì×ÊÔ´µÄÏìÓ¦½á¹û
-     */
-    public static String sendPost(String url, String param) {
-        PrintWriter out = null;
-        BufferedReader in = null;
-        String result = "";
-        try {
-            URL realUrl = new URL(url);
-            // ´ò¿ªºÍURLÖ®¼äµÄÁ¬½Ó
-            URLConnection conn = realUrl.openConnection();
-            // ÉèÖÃÍ¨ÓÃµÄÇëÇóÊôĞÔ
-            conn.setRequestProperty("accept", "*/*");
-            conn.setRequestProperty("connection", "Keep-Alive");
-            conn.setRequestProperty("user-agent", "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1;SV1)");
-            // ·¢ËÍPOSTÇëÇó±ØĞëÉèÖÃÈçÏÂÁ½ĞĞ
-            conn.setDoOutput(true);
-            conn.setDoInput(true);
-            // »ñÈ¡URLConnection¶ÔÏó¶ÔÓ¦µÄÊä³öÁ÷
-            out = new PrintWriter(conn.getOutputStream());
-            // ·¢ËÍÇëÇó²ÎÊı
-            out.print(param);
-            // flushÊä³öÁ÷µÄ»º³å
-            out.flush();
-            // ¶¨ÒåBufferedReaderÊäÈëÁ÷À´¶ÁÈ¡URLµÄÏìÓ¦
-            in = new BufferedReader(new InputStreamReader(conn.getInputStream(),"utf-8"));
-            String line = null;
-            while ((line = in.readLine()) != null) {
-                result += line;
-            }
-        } catch (Exception e) {
-            System.out.println("·¢ËÍ POST ÇëÇó³öÏÖÒì³££¡"+e);
-            e.printStackTrace();
-        }
-        //Ê¹ÓÃfinally¿éÀ´¹Ø±ÕÊä³öÁ÷¡¢ÊäÈëÁ÷
-        finally{
-            try{
-                if(out!=null){
-                    out.close();
-                }
-                if(in!=null){
-                    in.close();
-                }
-            }
-            catch(IOException ex){
-                ex.printStackTrace();
-            }
-        }
-        return result;
-    }
+	/**
+	 * å‘æŒ‡å®š URL å‘é€POSTæ–¹æ³•çš„è¯·æ±‚
+	 * @param url	å‘é€è¯·æ±‚çš„ URL
+	 * @param param	è¯·æ±‚å‚æ•°ï¼Œè¯·æ±‚å‚æ•°åº”è¯¥æ˜¯ name1=value1&name2=value2 çš„å½¢å¼ã€‚
+	 * @return æ‰€ä»£è¡¨è¿œç¨‹èµ„æºçš„å“åº”ç»“æœ
+	 */
+	public static String sendPost(String url, String param) {
+		PrintWriter out = null;
+		BufferedReader in = null;
+		String result = "";
+		try {
+			URL realUrl = new URL(url);
+			// æ‰“å¼€å’ŒURLä¹‹é—´çš„è¿æ¥
+			URLConnection conn = realUrl.openConnection();
+			// è®¾ç½®é€šç”¨çš„è¯·æ±‚å±æ€§
+			conn.setRequestProperty("accept", "*/*");
+			conn.setRequestProperty("connection", "Keep-Alive");
+			conn.setRequestProperty("user-agent", "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1;SV1)");
+			// å‘é€POSTè¯·æ±‚å¿…é¡»è®¾ç½®å¦‚ä¸‹ä¸¤è¡Œ
+			conn.setDoOutput(true);
+			conn.setDoInput(true);
+			// è·å–URLConnectionå¯¹è±¡å¯¹åº”çš„è¾“å‡ºæµ
+			out = new PrintWriter(conn.getOutputStream());
+			// å‘é€è¯·æ±‚å‚æ•°
+			out.print(param);
+			// flushè¾“å‡ºæµçš„ç¼“å†²
+			out.flush();
+			// å®šä¹‰BufferedReaderè¾“å…¥æµæ¥è¯»å–URLçš„å“åº”
+			in = new BufferedReader(new InputStreamReader(conn.getInputStream(),"utf-8"));
+			String line = null;
+			while ((line = in.readLine()) != null) {
+				result += line;
+			}
+		} catch (Exception e) {
+			System.out.println("å‘é€ POST è¯·æ±‚å‡ºç°å¼‚å¸¸ï¼"+e);
+			e.printStackTrace();
+		}
+		//ä½¿ç”¨finallyå—æ¥å…³é—­è¾“å‡ºæµã€è¾“å…¥æµ
+		finally{
+			try{
+				if(out!=null){
+					out.close();
+				}
+				if(in!=null){
+					in.close();
+				}
+			}
+			catch(IOException ex){
+				ex.printStackTrace();
+			}
+		}
+		return result;
+	}
 
-	//1¡¢
+	//1ã€
 	public String getTrace(Throwable t) {
 		StringWriter stringWriter= new StringWriter();
 		PrintWriter writer= new PrintWriter(stringWriter);
@@ -444,7 +445,7 @@ public class HttpUtil {
 		return buffer.toString();
 	}
 
-	//2¡¢
+	//2ã€
 	public static String getExceptionAllinformation(Exception ex){
 		String sOut = "";
 		StackTraceElement[] trace = ex.getStackTrace();
@@ -455,7 +456,7 @@ public class HttpUtil {
 		return sOut;
 	}
 
-	//3¡¢
+	//3ã€
 	public static String getExceptionAllinformation_01(Exception ex) {
 		ByteArrayOutputStream out = new ByteArrayOutputStream();
 		PrintStream pout = new PrintStream(out);
@@ -470,7 +471,7 @@ public class HttpUtil {
 		return ret;
 	}
 
-	//4¡¢
+	//4ã€
 	private static String toString_02(Throwable e){
 		StringWriter sw = new StringWriter();
 		PrintWriter pw = new PrintWriter(sw, true);

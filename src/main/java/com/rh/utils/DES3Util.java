@@ -16,23 +16,23 @@ import java.net.URLEncoder;
 
 /**
  * <p>
- * <b>°æÈ¨£º</b>Copyright (c) 2013 ÑÇĞÅÁª´´.<br>
- * <b>¹¤³Ì£º</b>MyTest<br>
- * <b>ÎÄ¼ş£º</b>DES3Test.java<br>
- * <b>´´½¨ÈË£º</b> gaojian3<br>
- * <b>´´½¨Ê±¼ä£º</b>2013-9-5 ÏÂÎç2:07:52<br>
+ * <b>ç‰ˆæƒï¼š</b>Copyright (c) 2013 äºšä¿¡è”åˆ›.<br>
+ * <b>å·¥ç¨‹ï¼š</b>MyTest<br>
+ * <b>æ–‡ä»¶ï¼š</b>DES3Test.java<br>
+ * <b>åˆ›å»ºäººï¼š</b> gaojian3<br>
+ * <b>åˆ›å»ºæ—¶é—´ï¼š</b>2013-9-5 ä¸‹åˆ2:07:52<br>
  * <p>
- * <b>TODO(Ò»¾ä»°¹¦ÄÜ¼òÊö).</b><br>
- * TODO(DES3¼ÓÃÜ).<br>
+ * <b>TODO(ä¸€å¥è¯åŠŸèƒ½ç®€è¿°).</b><br>
+ * TODO(DES3åŠ å¯†).<br>
  * </p>
  *
  * @author gaojian3
- * @see [Ïà¹ØÀà/·½·¨]
- * @since [²úÆ·/Ä£¿é°æ±¾]
+ * @see [ç›¸å…³ç±»/æ–¹æ³•]
+ * @since [äº§å“/æ¨¡å—ç‰ˆæœ¬]
  */
 public class DES3Util {
 
-   //¶¨Òå¼ÓÃÜËã·¨£¬ÓĞDES¡¢DESede(¼´3DES)¡¢Blowfish
+   //å®šä¹‰åŠ å¯†ç®—æ³•ï¼Œæœ‰DESã€DESede(å³3DES)ã€Blowfish
    private static final String Algorithm = "DESede";
    
    public static void main(String[] args) throws IOException {
@@ -43,30 +43,30 @@ public class DES3Util {
 	  
 	   String key = "SP0000011234567890123456";
 	   m = "userID=wsr4$userToken=88888888$isHotelUser=1$productID=$price=1$PurchaseType=1$ContentType=0$CategoryID=$ContentID=Umai:PROG/2873374@BESTV.SMG.SMG$timeStamp=20170317223719$notifyUrl=http://127.0.0.1:8089/testnotify.html?A=A&B=B$optFlag=EPG";
-	   // 1. ¼ÓÃÜ 
-	   // 1.1 ¼ÓÃÜ×Ö·û´®
+	   // 1. åŠ å¯† 
+	   // 1.1 åŠ å¯†å­—ç¬¦ä¸²
 	   byte[] e = encryptMode(m.getBytes(), key);
 	   
-	   // 1.2 BASE64EncoderµÃµ½¼ÓÃÜºóµÄ×Ö·û´®
+	   // 1.2 BASE64Encoderå¾—åˆ°åŠ å¯†åçš„å­—ç¬¦ä¸²
 	   BASE64Encoder enc = new BASE64Encoder();
 	   String eS = enc.encode(e);
 	   eS = URLEncoder.encode(eS);
 	   System.out.println(eS);
 	   
-	   // 2. ½âÃÜ
-	   // 2.1 BASE64Decoder¼ÓÃÜºóµÄ×Ö·û´®
+	   // 2. è§£å¯†
+	   // 2.1 BASE64DecoderåŠ å¯†åçš„å­—ç¬¦ä¸²
 	   BASE64Decoder dec=new BASE64Decoder();
 	   byte[] d = dec.decodeBuffer(eS);
-	   // 2.2 ½âÃÜ×Ö·û´®
+	   // 2.2 è§£å¯†å­—ç¬¦ä¸²
 	   String ds = new String(decryptMode(d, key));
 	   System.out.println(ds);
    }
    
    
    /**
-    * @description Í¨¹ıkey£¬3DES¼ÓÃÜmsg£¬·µ»ØBase64µÄ½á¹û
+    * @description é€šè¿‡keyï¼Œ3DESåŠ å¯†msgï¼Œè¿”å›Base64çš„ç»“æœ
     * @author gaojian3
-    * @date 2013-9-16 ÏÂÎç2:14:55 
+    * @date 2013-9-16 ä¸‹åˆ2:14:55 
     * @version 1.0.0
     * @param msg
     * @param key
@@ -80,11 +80,11 @@ public class DES3Util {
 			   return null;
 		   }
 		   
-		   // ¼ÓÃÜ 
-		   // 1 ¼ÓÃÜ×Ö·û´®
+		   // åŠ å¯† 
+		   // 1 åŠ å¯†å­—ç¬¦ä¸²
 		   byte[] e = encryptMode(msg.getBytes(), key);
 		   
-		   // 2 BASE64EncoderµÃµ½¼ÓÃÜºóµÄ×Ö·û´®
+		   // 2 BASE64Encoderå¾—åˆ°åŠ å¯†åçš„å­—ç¬¦ä¸²
 		   BASE64Encoder enc = new BASE64Encoder();
 		   return enc.encode(e);
 	   } catch (Exception e) {
@@ -93,9 +93,9 @@ public class DES3Util {
    }
 
    /**
-    * @description Í¨¹ıkey£¬3DES¼ÓÃÜmsg£¬·µ»ØBase64µÄ½á¹û
+    * @description é€šè¿‡keyï¼Œ3DESåŠ å¯†msgï¼Œè¿”å›Base64çš„ç»“æœ
     * @author gaojian3
-    * @date 2013-9-16 ÏÂÎç2:16:41 
+    * @date 2013-9-16 ä¸‹åˆ2:16:41 
     * @version 1.0.0
     * @param msg
     * @param key
@@ -109,12 +109,12 @@ public class DES3Util {
 			   return null;
 		   }
 		   
-		   // ½âÃÜ
-		   // 1 BASE64Decoder¼ÓÃÜºóµÄ×Ö·û´®
+		   // è§£å¯†
+		   // 1 BASE64DecoderåŠ å¯†åçš„å­—ç¬¦ä¸²
 		   BASE64Decoder dec=new BASE64Decoder();
 		   byte[] d = dec.decodeBuffer(msg);
 		   
-		   // 2 ½âÃÜ×Ö·û´®
+		   // 2 è§£å¯†å­—ç¬¦ä¸²
 		   return new String(decryptMode(d, key));
 		   
 	   } catch (Exception e) {
@@ -123,15 +123,15 @@ public class DES3Util {
    }
    
    /**
-    * ¼ÓÃÜ·½·¨
-    * @param src Ô´Êı¾İµÄ×Ö½ÚÊı×é
+    * åŠ å¯†æ–¹æ³•
+    * @param src æºæ•°æ®çš„å­—èŠ‚æ•°ç»„
     * @return 
     */
    public static byte[] encryptMode(byte[] src, String key) {
        try {
-            SecretKey deskey = new SecretKeySpec(build3DesKey(key), Algorithm);    //Éú³ÉÃÜÔ¿
-            Cipher c1 = Cipher.getInstance(Algorithm);    //ÊµÀı»¯¸ºÔğ¼ÓÃÜ/½âÃÜµÄCipher¹¤¾ßÀà
-            c1.init(Cipher.ENCRYPT_MODE, deskey);    //³õÊ¼»¯Îª¼ÓÃÜÄ£Ê½
+            SecretKey deskey = new SecretKeySpec(build3DesKey(key), Algorithm);    //ç”Ÿæˆå¯†é’¥
+            Cipher c1 = Cipher.getInstance(Algorithm);    //å®ä¾‹åŒ–è´Ÿè´£åŠ å¯†/è§£å¯†çš„Cipherå·¥å…·ç±»
+            c1.init(Cipher.ENCRYPT_MODE, deskey);    //åˆå§‹åŒ–ä¸ºåŠ å¯†æ¨¡å¼
             return c1.doFinal(src);
         } catch (java.security.NoSuchAlgorithmException e1) {
             e1.printStackTrace();
@@ -145,15 +145,15 @@ public class DES3Util {
 
 
    /**
-    * ½âÃÜº¯Êı
-    * @param src ÃÜÎÄµÄ×Ö½ÚÊı×é
+    * è§£å¯†å‡½æ•°
+    * @param src å¯†æ–‡çš„å­—èŠ‚æ•°ç»„
     * @return
     */
    public static byte[] decryptMode(byte[] src, String key) {
        try {
            SecretKey deskey = new SecretKeySpec(build3DesKey(key), Algorithm);
            Cipher c1 = Cipher.getInstance(Algorithm);
-           c1.init(Cipher.DECRYPT_MODE, deskey);    //³õÊ¼»¯Îª½âÃÜÄ£Ê½
+           c1.init(Cipher.DECRYPT_MODE, deskey);    //åˆå§‹åŒ–ä¸ºè§£å¯†æ¨¡å¼
            return c1.doFinal(src);
        } catch (java.security.NoSuchAlgorithmException e1) {
            e1.printStackTrace();
@@ -167,24 +167,24 @@ public class DES3Util {
    
    
    /*
-    * ¸ù¾İ×Ö·û´®Éú³ÉÃÜÔ¿×Ö½ÚÊı×é 
-    * @param keyStr ÃÜÔ¿×Ö·û´®
+    * æ ¹æ®å­—ç¬¦ä¸²ç”Ÿæˆå¯†é’¥å­—èŠ‚æ•°ç»„ 
+    * @param keyStr å¯†é’¥å­—ç¬¦ä¸²
     * @return 
     * @throws UnsupportedEncodingException
     */
    public static byte[] build3DesKey(String keyStr) throws UnsupportedEncodingException {
-       byte[] key = new byte[24];    //ÉùÃ÷Ò»¸ö24Î»µÄ×Ö½ÚÊı×é£¬Ä¬ÈÏÀïÃæ¶¼ÊÇ0
-       byte[] temp = keyStr.getBytes("UTF-8");    //½«×Ö·û´®×ª³É×Ö½ÚÊı×é
+       byte[] key = new byte[24];    //å£°æ˜ä¸€ä¸ª24ä½çš„å­—èŠ‚æ•°ç»„ï¼Œé»˜è®¤é‡Œé¢éƒ½æ˜¯0
+       byte[] temp = keyStr.getBytes("UTF-8");    //å°†å­—ç¬¦ä¸²è½¬æˆå­—èŠ‚æ•°ç»„
        
        /*
-        * Ö´ĞĞÊı×é¿½±´
-        * System.arraycopy(Ô´Êı×é£¬´ÓÔ´Êı×éÄÄÀï¿ªÊ¼¿½±´£¬Ä¿±êÊı×é£¬¿½±´¶àÉÙÎ»)
+        * æ‰§è¡Œæ•°ç»„æ‹·è´
+        * System.arraycopy(æºæ•°ç»„ï¼Œä»æºæ•°ç»„å“ªé‡Œå¼€å§‹æ‹·è´ï¼Œç›®æ ‡æ•°ç»„ï¼Œæ‹·è´å¤šå°‘ä½)
         */
        if(key.length > temp.length){
-           //Èç¹ûtemp²»¹»24Î»£¬Ôò¿½±´tempÊı×éÕû¸ö³¤¶ÈµÄÄÚÈİµ½keyÊı×éÖĞ
+           //å¦‚æœtempä¸å¤Ÿ24ä½ï¼Œåˆ™æ‹·è´tempæ•°ç»„æ•´ä¸ªé•¿åº¦çš„å†…å®¹åˆ°keyæ•°ç»„ä¸­
            System.arraycopy(temp, 0, key, 0, temp.length);
        }else{
-           //Èç¹ûtemp´óÓÚ24Î»£¬Ôò¿½±´tempÊı×é24¸ö³¤¶ÈµÄÄÚÈİµ½keyÊı×éÖĞ
+           //å¦‚æœtempå¤§äº24ä½ï¼Œåˆ™æ‹·è´tempæ•°ç»„24ä¸ªé•¿åº¦çš„å†…å®¹åˆ°keyæ•°ç»„ä¸­
            System.arraycopy(temp, 0, key, 0, key.length);
        }
        return key;

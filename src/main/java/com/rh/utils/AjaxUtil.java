@@ -28,7 +28,7 @@ public class AjaxUtil
 {
 	
     /**
-     * ½«¶ÔÏó×ª»¯ÎªJSON×Ö·û´®
+     * å°†å¯¹è±¡è½¬åŒ–ä¸ºJSONå­—ç¬¦ä¸²
      * @author chenwei
      * @date 2009-5-22
      * @param object
@@ -36,7 +36,7 @@ public class AjaxUtil
      */
     public static String convert2JSONString(Object object) {
     	String jsonString = null;
-        // ÈÕÆÚÖµ´¦ÀíÆ÷
+        // æ—¥æœŸå€¼å¤„ç†å™¨
         JsonConfig jsonConfig = new JsonConfig();
         jsonConfig.registerJsonValueProcessor(java.util.Date.class,
             new JsonDateValueProcessor());
@@ -55,7 +55,7 @@ public class AjaxUtil
     }
 
     /**
-     * ·µ»ØAJAXµ÷ÓÃ½á¹û
+     * è¿”å›AJAXè°ƒç”¨ç»“æœ
      * 
      * @author chenwei
      * @date 2009-5-22
@@ -72,7 +72,7 @@ public class AjaxUtil
     
     /**
      * 
-     * ·µ»ØÒ³Ãæ´«µİ¹ıÀ´µÄÖµmap
+     * è¿”å›é¡µé¢ä¼ é€’è¿‡æ¥çš„å€¼map
      * 
      * @author chenwei
      * @date 2009-5-22
