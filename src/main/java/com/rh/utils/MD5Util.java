@@ -7,6 +7,10 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  * <p>
@@ -308,15 +312,48 @@ public class MD5Util {
     
 
     public static void main(String[] args)
-        throws IOException {
-    	
-    	//密钥
-    	String key = "1234";
-    	//待加密串
-    	String m = "transactionID=sp000001678943065000001&result=0";
-    	
-        MD5Util md5 = new MD5Util( m + "$" + key);
-        System.out.println(md5.getStringDigest());
+            throws IOException, InterruptedException, ParseException {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-01 00:00:00");
+        Date date = new Date();
+        // 当月1号0点
+        String subscribeTime = sdf.format(date);
+        System.out.println(subscribeTime);
+        System.out.println("--------------------1----------------------");
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.MONTH, -1); // 得到前一个月
+        System.out.println(new SimpleDateFormat("MM").format(calendar.getTime()));
+        System.out.println("--------------------2---------------------");
+        Calendar startCalendar = Calendar.getInstance();
+        long startTime = startCalendar.getTimeInMillis();
+        System.out.println(startTime);
+//        Thread.sleep(1000);
+        Calendar endCalendar = Calendar.getInstance();
+        long endTime = endCalendar.getTimeInMillis();
+        System.out.println(endTime);
+        long time = endTime - startTime;
+        System.out.println(String.valueOf(time/60000.0));
+        System.out.println("--------------------3----------------------");
+        //根据时间计算出需要导入处理的清单
+        Calendar needAutoSubscribeCalendar = Calendar.getInstance();
+        needAutoSubscribeCalendar.add(Calendar.DAY_OF_MONTH, -(30+1));
+        System.out.println( new SimpleDateFormat("yyyy-MM-dd").format(needAutoSubscribeCalendar.getTime()) );
+        System.out.println("-------------------4-------------------");
+        SimpleDateFormat ss = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Calendar lastCalendar = Calendar.getInstance();
+        lastCalendar.add(Calendar.DAY_OF_MONTH, -1);
+        System.out.println(ss.format(lastCalendar.getTime()));
+        System.out.println("-------------------5-------------------");
+        SimpleDateFormat sdf1 = new SimpleDateFormat("yyyyMMdd");
+        String theDay="20210203";
+        Date theDate = sdf1.parse(theDay);
+        System.out.println(theDate);
+        System.out.println("-------------------6-------------------");
+        //获取今天的前一天的时间
+        Calendar lastCalendarx = Calendar.getInstance();
+//        lastCalendarx.setTime(theDate);
+        lastCalendarx.add(5, -1);
+        System.out.println(lastCalendarx.getTime());
+
     }
     
     public static String getMD5Sign(String msg){
