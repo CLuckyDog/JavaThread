@@ -348,9 +348,10 @@ public class Hash163 {
     }
 
     public static void main(String[] args) throws Exception {
-        String loginAccount="8371dxrmtest20";
-        String tableNo = Hash163.USERHash(loginAccount, Hash163.IPTVINFO_TABLE_HEAD);
-//        String tableNo= Hash163.USERHash(loginAccount, Hash163.SUBSCRIBEINFO_TABLE_HEAD);
+        String loginAccount="106304259027";
+//        String tableNo = Hash163.USERHash(loginAccount, Hash163.IPTVINFO_TABLE_HEAD);// BMS用户信息表
+//        String tableNo= Hash163.USERHash(loginAccount, Hash163.SUBSCRIBEINFO_TABLE_HEAD);//BMS 订购信息表
+        String tableNo = Hash163.USERHash(loginAccount, Hash163.AMS_USERINFO);//AMS用户信息表
         System.out.println(tableNo);
     }
 }

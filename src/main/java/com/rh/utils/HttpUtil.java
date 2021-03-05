@@ -303,17 +303,18 @@ public class HttpUtil {
 	}
 
 	public static void main(String[] args) {
-		String URL="http://117.27.128.186:35309/itv-open/";
-		String appId="10000006";
-		String timestamp=DateUtil.getNowTimeStamp();
-		String auth=MD5.digest(appId+timestamp);
-		String paramInfo=DES3Util.encryptMsg("itvAccount=iptv7819126038","PRBSQBQHMO1T3DZPOLWCI7ILTN9F6V5OIX8SWYZVGTDNC67H");
-		URL+="appId="+appId+"&timestamp="+timestamp+"&paramInfo="+paramInfo+"&auth="+auth;
+//		String URL="http://117.27.128.186:35309/itv-open/";
+//		String appId="10000006";
+//		String timestamp=DateUtil.getNowTimeStamp();
+//		String auth=MD5.digest(appId+timestamp);
+//		String paramInfo=DES3Util.encryptMsg("itvAccount=iptv7819126038","PRBSQBQHMO1T3DZPOLWCI7ILTN9F6V5OIX8SWYZVGTDNC67H");
+//		URL+="appId="+appId+"&timestamp="+timestamp+"&paramInfo="+paramInfo+"&auth="+auth;
 
 		try {
+			String URL="http://127.0.0.1:8081/getStbIP.jsp";
 			String sbBack = HttpUtil.sendGet(URL);
 			JSONObject jsonObject = JSONObject.fromObject(sbBack);
-			String areaCode = (String) jsonObject.get("areaCode");
+			System.out.println(sbBack);
 		} catch (HttpResponseException e) {
 			e.printStackTrace();
 		}
