@@ -40,6 +40,10 @@ public class Test1 {
         System.out.println("after (oldCap < 64)  :"+oldCap);
         int newCap = oldCap + ((oldCap < 64) ?(oldCap + 2) : (oldCap >> 1));
         System.out.println("newCap:"+newCap);
+        System.out.println("----------------3---------------");
+        int k = 3;
+        System.out.println(k >>> 1);
+        System.out.println(k >> 1);
 
     }
 
