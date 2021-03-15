@@ -1,28 +1,12 @@
 package com.rh.bilibili.test;
 
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Test1 {
     public static void main(String[] args) {
-//        new Thread(() -> {
-//            while(true) {
-//                try {
-//                    Thread.sleep(500);
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        }, "t1").start();
-//
-//        new Thread(() -> {
-//            while(true) {
-//                try {
-//                    Thread.sleep(500);
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        }, "t2").start();
+
         AtomicInteger integer = new AtomicInteger(0);
         int c =-1;
         c=integer.getAndIncrement();
@@ -44,6 +28,31 @@ public class Test1 {
         int k = 3;
         System.out.println(k >>> 1);
         System.out.println(k >> 1);
+       int COUNT_BITS = Integer.SIZE - 3;
+        /**
+         * 线程最大个数（假设是32位系统，则低位29位）：    0001 1111 1111 1111 1111 1111 1111 1111
+         * 64位系统就是：0001 1111 1111 1111 1111 1111 1111 1111 1111 1111 1111 1111 1111 1111 1111 1111
+         * 1110 0000 0000 0000 0000 0000 0000 0000
+         * 0001 1111 1111 1111 1111 1111 1111 1111
+         */
+        int CAPACITY   = (1 << COUNT_BITS) - 1;
+        System.out.println(CAPACITY);
+        System.out.println(~CAPACITY);
+        System.out.println(Integer.toBinaryString(-15));
+        System.out.println(~-15);
+        System.out.println(Integer.toBinaryString(~-15));
+        System.out.println("----------------4---------------");
+        String ip = "a";
+
+        String patternString = "(([0,1]?\\d?\\d|2[0-4]\\d|25[0-5])\\.){3}([0,1]?\\d?\\d|2[0-4]\\d|25[0-5])";
+        Pattern pattern = Pattern.compile(patternString);
+        Matcher matcher = pattern.matcher(ip);
+        if (matcher.matches()){
+            System.out.println(ip);
+        }else{
+            System.out.println("IP 格式错误！");
+        }
+
 
     }
 
