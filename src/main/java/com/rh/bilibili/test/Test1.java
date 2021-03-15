@@ -36,11 +36,25 @@ public class Test1 {
          * 0001 1111 1111 1111 1111 1111 1111 1111
          */
         int CAPACITY   = (1 << COUNT_BITS) - 1;
+
+        //接受新任务并且处理阻塞队列里的任务。
+         final int RUNNING    = -1 << COUNT_BITS;
+        //拒绝新任务但是处理阻塞队列里的任务。
+         final int SHUTDOWN   =  0 << COUNT_BITS;
+        //拒绝新任务并且抛弃阻塞队列里的任务，同时会中断正在处理的任务。
+         final int STOP       =  1 << COUNT_BITS;
+        //所有任务都执行完（包含阻塞队列里面的任务）后当前线程池活动线程
+        //数为0 ， 将要调用terminated 方法。
+         final int TIDYING    =  2 << COUNT_BITS;
+        //终止状态。terminated 方法调用完成以后的状态。
+         final int TERMINATED =  3 << COUNT_BITS;
         System.out.println(CAPACITY);
         System.out.println(~CAPACITY);
+        System.out.println(Integer.toBinaryString(~CAPACITY));
         System.out.println(Integer.toBinaryString(-15));
         System.out.println(~-15);
         System.out.println(Integer.toBinaryString(~-15));
+        System.out.println("----------"+Integer.toBinaryString(RUNNING & ~CAPACITY));
         System.out.println("----------------4---------------");
         String ip = "a";
 
@@ -55,6 +69,7 @@ public class Test1 {
 
 
     }
+
 
      private static String name;
 
