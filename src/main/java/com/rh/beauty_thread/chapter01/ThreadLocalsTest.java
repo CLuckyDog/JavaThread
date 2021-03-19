@@ -25,6 +25,7 @@ public class ThreadLocalsTest {
         Thread t2 = new Thread(()->{
             local1.set("3333");
             local2.set("4444");
+//            System.gc();
             System.out.println("t2-local1:"+local1.get());
             System.out.println("t2-local2:"+local2.get());
         },"t2");
