@@ -56,13 +56,16 @@ public class Test1 {
         System.out.println(Integer.toBinaryString(~-15));
         System.out.println("----------"+Integer.toBinaryString(RUNNING & ~CAPACITY));
         System.out.println("----------------4---------------");
-        String ip = "a";
+        String requestIp = "202.102.117.16";
+        String userIP="127.0.0.1";
 
         String patternString = "(([0,1]?\\d?\\d|2[0-4]\\d|25[0-5])\\.){3}([0,1]?\\d?\\d|2[0-4]\\d|25[0-5])";
         Pattern pattern = Pattern.compile(patternString);
-        Matcher matcher = pattern.matcher(ip);
-        if (matcher.matches()){
-            System.out.println(ip);
+        Matcher matcher1 = pattern.matcher(requestIp);
+        Matcher matcher2 = pattern.matcher(userIP);
+        if (!(matcher1.matches()&&matcher2.matches()) && !userIP.contains(requestIp)){
+            System.out.println(requestIp);
+            System.out.println(userIP);
         }else{
             System.out.println("IP 格式错误！");
         }
