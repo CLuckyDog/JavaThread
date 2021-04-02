@@ -31,8 +31,8 @@ public class TestDelay {
         try {
             //3.1、循环，如果想避免虚假唤醒，则不能把全部元素都打印出来
             for (;;){
-                //3.2、获取国企任务并打印
-                while ((ele = delayQueue.take()) != null){  //获取的时候，从堆顶取出元素
+                //3.2、获取过期任务并打印
+                while ((ele = delayQueue.take()) != null){  //获取的时候，从堆顶（二叉树根节点）取出元素
                     System.out.println(ele.toString());
                 }
             }
