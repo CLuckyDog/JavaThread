@@ -39,8 +39,5 @@ public class TestThreadPoolExecutors {
             log.debug("3");
         });
 
-        Thread t1 = new Thread("xx");
-
-
     }
 }
