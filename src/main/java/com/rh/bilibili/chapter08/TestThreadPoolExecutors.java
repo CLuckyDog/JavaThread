@@ -27,6 +27,7 @@ public class TestThreadPoolExecutors {
         });
 
         pool.execute(()->{
+            while (true)
             log.debug("1");
         });
 
@@ -38,6 +39,8 @@ public class TestThreadPoolExecutors {
         pool.execute(()->{
             log.debug("3");
         });
+
+        pool.shutdownNow();
 
     }
 }

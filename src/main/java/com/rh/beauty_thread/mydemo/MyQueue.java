@@ -120,5 +120,9 @@ public class MyQueue {
                 MyQueue.takeMsg();
         }, "MyTakeThreadConsumer").start();
 
+        log.debug("-------------------------------------------------");
+        pool.shutdownNow();
+        System.out.println("isShutdown:"+pool.isShutdown());
+
     }
 }
