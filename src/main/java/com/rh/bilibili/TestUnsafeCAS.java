@@ -39,6 +39,7 @@ public class TestUnsafeCAS {
             int i=0;
             for (i = 0; i < 10000; i++) {
                 while (true){
+                    //获取value的操作，一定要放在while里面，否则可能导致死循环
                     int pre = person.value;
                     int nextVal = pre +1;
                     System.out.println("while bbb");
