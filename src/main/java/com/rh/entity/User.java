@@ -102,4 +102,20 @@ public class User {
     public void setIsvalid(Byte isvalid) {
         this.isvalid = isvalid;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "user_id=" + user_id +
+                ", user_name='" + user_name + '\'' +
+                ", user_num='" + user_num + '\'' +
+                ", account='" + account + '\'' +
+                ", password='" + password + '\'' +
+                ", post_name='" + post_name + '\'' +
+                ", creat_time=" + creat_time +
+                ", update_time=" + update_time +
+                ", remark='" + remark + '\'' +
+                ", isvalid=" + isvalid +
+                '}';
+    }
 }

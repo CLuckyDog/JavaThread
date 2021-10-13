@@ -348,11 +348,13 @@ public class Hash163 {
     }
 
     public static void main(String[] args) throws Exception {
-        String loginAccount="iptv7713096171";
-        System.out.println(Hash163.sHash2("IPTV2021032434823618"));
+        String loginAccount="839416402630@HAITV";
+//        System.out.println(Hash163.sHash2("IPTV2021032434823618"));
 //        String tableNo = Hash163.USERHash(loginAccount, Hash163.IPTVINFO_TABLE_HEAD);// BMS用户信息表
         String tableNo= Hash163.USERHash(loginAccount, Hash163.SUBSCRIBEINFO_TABLE_HEAD);//BMS 订购信息表
 //        String tableNo = Hash163.USERHash(loginAccount, Hash163.AMS_USERINFO);//AMS用户信息表
         System.out.println(tableNo);
+       String tableName = Hash163.USERHash(loginAccount, Hash163.SUBSCRIBEINFO_TABLE_HEAD);
+        System.out.println(tableName);
     }
 }
