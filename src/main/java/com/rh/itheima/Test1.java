@@ -1,5 +1,6 @@
 package com.rh.itheima;
 
+import com.rh.design_thread.chapter_three.ReenterLock;
 import com.rh.entity.User;
 
 import java.util.ArrayList;
@@ -7,6 +8,8 @@ import java.util.Collections;
 import java.util.UUID;
 import java.util.Vector;
 import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.ReentrantLock;
 import java.util.stream.Collectors;
 
 /**
@@ -18,7 +21,7 @@ import java.util.stream.Collectors;
  * \
  */
 public class Test1 {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         User user = new User();
         user.setAccount("aaa");
         changeVal1(user);
@@ -26,6 +29,10 @@ public class Test1 {
 
         changeVal2(user);
         System.out.println(user.getAccount());
+        ReentrantLock lock = new ReentrantLock();
+        Condition condition = lock.newCondition();
+        condition.await();
+        condition.signalAll();
     }
 
     public static void changeVal1( User user){

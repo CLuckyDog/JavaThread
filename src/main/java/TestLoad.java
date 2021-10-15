@@ -1,5 +1,10 @@
+import java.util.Random;
+
 public class TestLoad {
-    static {
-        System.out.println("--------TestLoad------");
+    public static void main(String[] args) {
+        Random random = new Random();
+        while (true){
+            System.out.println(random.nextInt(1000000));
+        }
     }
 }
