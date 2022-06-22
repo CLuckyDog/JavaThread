@@ -9,6 +9,8 @@ import java.util.ArrayList;
  * \* Time: 15:39
  * \* Description:
  *                  -Xms10m -Xmx10m -XX:+PrintGCDetails -XX:MaxDirectMemorySize=5m
+ *
+ *                  OutOfMemoryError: GC overhead limit exceeded
  * \
  */
 public class OOMError1 {
